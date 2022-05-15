@@ -1,0 +1,7 @@
+.idea
+/.idea
+*.iml
+target
+.flattened-pom.xml
+cache
+static
