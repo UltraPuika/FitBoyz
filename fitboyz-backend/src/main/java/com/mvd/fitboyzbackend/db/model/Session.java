@@ -15,7 +15,7 @@ public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title;
+    private String sessionTitle;
     private String intensity;
     @OneToMany(targetEntity = CompletedSession.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "session_id", referencedColumnName = "id")
