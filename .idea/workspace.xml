@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ff9045f-7e98-405c-b062-52a2efdfb181" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/FitboyzApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/CompletedExerciseDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/CompletedSessionDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/ExerciseDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/ProgressDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/SessionDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/SessionExerciseDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/TrainingPlanDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/UserDbClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/CompletedExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/CompletedSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Exercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Progress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Session.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/SessionExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/TrainingPlan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/CompletedExercisesDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/CompletedSessionDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/ExerciseDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/ProgressDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/SessionDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/SessionExerciseRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/TrainingPlanDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/UserDbRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/CompletedExerciseMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/CompletedSessionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/ProgressMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/TrainingPlanMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/CompletedSessionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/ProgressController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/TrainingPlanController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/CompletedExerciseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/CompletedSessionDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/ExerciseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/OverallProgressDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/ProgressDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/SessionDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/SessionExerciseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/TrainingPlanDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/CompletedSessionManipulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/ProgressManipulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/TrainingPlanManipulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/UserManipulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/CompletedSessionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/ProgressService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/TrainingPlanService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/test/java/com/mvd/fitboyz/FitboyzApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="29TCYTOZICRYzLTZK0owqxsypNo" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fitboyz-backend/pom.xml" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="FitboyzApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mvd.fitboyz.FitboyzApplication" />
+      <module name="fitboyz-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mvd.fitboyz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FitboyzApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ff9045f-7e98-405c-b062-52a2efdfb181" name="Changes" comment="" />
+      <created>1653127736821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653127736821</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
