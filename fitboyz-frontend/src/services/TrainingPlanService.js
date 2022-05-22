@@ -1,16 +1,18 @@
 import axios from "axios"
 
-const TRAINING_PLAN_API_BASE_URL =
-  "http://localhost:8080/training-plan"
+const TRAINING_PLAN_API_BASE_URL = "http://localhost:8080/training-plan"
 
-  const USER_PARAM = "?userId=1"
+const USER_PARAM = "?userId="
 
 class TrainingPlanService {
-  getTrainingPlans() {
-    return axios.get(TRAINING_PLAN_API_BASE_URL + USER_PARAM)
+  getTrainingPlans(userId) {
+    return axios.get(TRAINING_PLAN_API_BASE_URL + USER_PARAM + userId)
   }
-  createTrainingPlan(trainingPlan) {
-    return axios.post(TRAINING_PLAN_API_BASE_URL + USER_PARAM, trainingPlan)
+  createTrainingPlan(userId, trainingPlan) {
+    return axios.post(
+      TRAINING_PLAN_API_BASE_URL + USER_PARAM + userId,
+      trainingPlan
+    )
   }
 }
 

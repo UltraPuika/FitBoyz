@@ -8,12 +8,19 @@ import com.mvd.fitboyzbackend.web.manipulator.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserDbClient userDbClient;
     private final UserManipulator userManipulator;
+
+    public UserDto getUserDto(String email, String password){
+        User user = userDbClient.getUser(email, password);
+        return userManipulator.convertUserToDto(user);
+    }
 
     public UserDto getUserDtoById(Long id) {
         User userDbEntity = userDbClient.getUserById(id);

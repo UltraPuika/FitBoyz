@@ -5,7 +5,7 @@ import com.mvd.fitboyzbackend.db.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
+import java.util.*;
 
 @Component
 @RequiredArgsConstructor
@@ -15,6 +15,10 @@ public class UserDbClient {
         Optional<User> user = userDbRepository.findById(id);
 
         return user.get();
+    }
+
+    public User getUser(String email, String password){
+        return userDbRepository.findByEmailEqualsAndPasswordEquals(email, password);
     }
 
     public void deleteUser(Long id){

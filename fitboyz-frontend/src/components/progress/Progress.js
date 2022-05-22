@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react"
-import ProgressService from "../services/ProgressService"
+import ProgressService from "../../services/ProgressService"
+import { useGlobalContext } from "../../context"
 
 const Progress = () => {
+  const { userId } = useGlobalContext()
   const [progress, setProgress] = useState([
     { id: "", name: "", amount: "", unit: "", date: "" },
   ])
 
-    useEffect(() => {
-      getProgress()
-    }, [])
+  useEffect(() => {
+    getProgress()
+  }, [])
 
   const getProgress = () => {
-    ProgressService.getProgress().then((res) => {
+    ProgressService.getProgress(userId).then((res) => {
       setProgress(res.data)
     })
   }
