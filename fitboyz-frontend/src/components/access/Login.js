@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import AccessService from "../../services/AccessService"
 import { useGlobalContext } from "../../context"
 
-const Login = () => {
+const Login = ({setToken}) => {
  const { setUserId } = useGlobalContext()
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     AccessService.getUser(username, password).then((res) => {
-      setUserId(res.data.id)
+      setToken(res.data.id)
     })
   }
 

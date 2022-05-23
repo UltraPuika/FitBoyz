@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
 import TrainingPlan from "./components/trainingPlan/TrainingPlan"
@@ -9,8 +9,14 @@ import Progress from "./components/progress/Progress"
 import NewProgress from "./components/progress/NewProgress"
 import Login from "./components/access/Login"
 import Registration from "./components/access/Registration"
+import {useGlobalContext} from "./context"
 
 function App() {
+const [token, setToken] = useState()
+
+  //  if (!token) {
+  //    return <Login setToken={setToken} />
+  //  }
   return (
     <div>
       <Router>
@@ -21,7 +27,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/training-plan" element={<TrainingPlan />} />
             <Route path="/training-plan/new" element={<NewTrainingPlan />} />
-            <Route path="/workout" element={<Workout />} />
+            <Route path="/workout" element={<Workout token={token}/>} />
             <Route path="/workout/new" element={<NewWorkout />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/progress/new" element={<NewProgress />} />
