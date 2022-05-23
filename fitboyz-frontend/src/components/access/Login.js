@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import AccessService from "../../services/AccessService"
-import { useGlobalContext } from "../../context"
 
-const Login = ({setToken}) => {
- const { setUserId } = useGlobalContext()
+
+const Login = ({ setToken }) => {
+
+
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+
 
   const handleChange = (event) => {
     if (event.target.name === "username") {

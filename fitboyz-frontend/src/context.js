@@ -1,22 +1,20 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 
-const AppContext = React.createContext()
+const AuthContext = React.createContext()
 
-export const AppProvider = ({ children }) => {
-  const [userId, setUserId] = useState("")
+export const AuthProvider = ({ children }) => {
+  const [auth, setAuth] = useState({})
 
   return (
-    <AppContext.Provider
+    <AuthContext.Provider
       value={{
-        userId,
-        setUserId,
+        auth,
+        setAuth,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </AuthContext.Provider>
   )
 }
 
-export const useGlobalContext = () => {
-  return useContext(AppContext)
-}
+export default AuthContext

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import TrainingPlanService from "../../services/TrainingPlanService"
-import { useGlobalContext } from "../../context"
 
 const TrainingPlan = () => {
-   const { userId } = useGlobalContext()
   const [trainingPlans, setTrainingPlan] = useState([])
 
   useEffect(() => {
@@ -11,7 +9,7 @@ const TrainingPlan = () => {
   }, [])
 
   const getTrainingPlans = () => {
-    TrainingPlanService.getTrainingPlans(userId).then((res) => {
+    TrainingPlanService.getTrainingPlans(1).then((res) => {
       setTrainingPlan(res.data)
     })
   }

@@ -1,10 +1,8 @@
 import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import WorkoutService from "../../services/WorkoutService"
-import { useGlobalContext } from "../../context"
 
 const NewWorkout = () => {
-   const { userId } = useGlobalContext()
   const [workout, setWorkout] = useState({})
   const [date, setDate] = useState("")
 

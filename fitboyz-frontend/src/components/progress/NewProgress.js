@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 import ProgressService from "../../services/ProgressService"
-import { useGlobalContext } from "../../context"
 
 const NewProgress = () => {
-  const { userId } = useGlobalContext()
   const [progress, setProgress] = useState({})
   const [name, setName] = useState("")
   const [amount, setAmount] = useState("")
@@ -25,7 +23,7 @@ const NewProgress = () => {
 
   const handleSubmit = (event) => {
     console.log(progress);
-    ProgressService.createProgress(userId, progress).then((res) => {})
+    ProgressService.createProgress(1, progress).then((res) => {})
     event.preventDefault()
   }
 

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react"
 import WorkoutService from "../../services/WorkoutService"
-import { useGlobalContext } from "../../context"
 
-const Workout = ({ token }) => {
-  const { userId } = useGlobalContext()
+const Workout = () => {
   const [workouts, setWorkouts] = useState([])
 
   useEffect(() => {
@@ -11,8 +9,7 @@ const Workout = ({ token }) => {
   }, [])
 
   const getWorkouts = () => {
-    console.log(token)
-    WorkoutService.getWorkouts(token).then((res) => {
+    WorkoutService.getWorkouts(1).then((res) => {
       setWorkouts(res.data)
     })
   }

@@ -2,10 +2,8 @@ import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import TrainingPlanService from "../../services/TrainingPlanService"
 import NewSession from "./NewSession"
-import { useGlobalContext } from "../../context"
 
 const NewTrainingPlan = () => {
-   const { userId } = useGlobalContext()
   const [trainingPlan, setTrainingPlan] = useState({})
   const [title, setTitle] = useState("")
   const [planLength, setPlanLength] = useState("")
@@ -87,7 +85,7 @@ const NewTrainingPlan = () => {
       })
     })
     console.log(trainingPlan)
-    TrainingPlanService.createTrainingPlan(userId, trainingPlan).then((res) => {})
+    TrainingPlanService.createTrainingPlan(1, trainingPlan).then((res) => {})
   }
 
   return (
