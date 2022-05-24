@@ -67,25 +67,24 @@ const NewTrainingPlan = () => {
     } else if (event.target.name === "numberOfSessions") {
       setNumberOfSessions(event.target.value)
     }
-    setTrainingPlan({
-      title,
-      planLength,
-      date,
-      sessions,
-      numberOfSessions,
-    })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const id = parseInt(localStorage.getItem("token"))
     trainingPlan.sessions.forEach((session) => {
       delete session.id
       session.sessionExercises.forEach((exercise) => {
         delete exercise.id
       })
     })
-    console.log(trainingPlan)
-    TrainingPlanService.createTrainingPlan(1, trainingPlan).then((res) => {})
+    TrainingPlanService.createTrainingPlan(id, {
+      title,
+      planLength,
+      date,
+      sessions,
+      numberOfSessions,
+    }).then((res) => {})
   }
 
   return (

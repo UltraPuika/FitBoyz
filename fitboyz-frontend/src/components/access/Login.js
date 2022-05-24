@@ -1,13 +1,9 @@
 import React, { useRef, useState, useEffect } from "react"
 import AccessService from "../../services/AccessService"
 
-
-const Login = ({ setToken }) => {
-
-
+const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
 
   const handleChange = (event) => {
     if (event.target.name === "username") {
@@ -20,8 +16,9 @@ const Login = ({ setToken }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     AccessService.getUser(username, password).then((res) => {
-      setToken(res.data.id)
+      localStorage.setItem("token", res.data.id)
     })
+     window.location.href = "/"
   }
 
   return (

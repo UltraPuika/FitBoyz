@@ -17,8 +17,8 @@ public class UserDbClient {
         return user.get();
     }
 
-    public User getUser(String email, String password){
-        return userDbRepository.findByEmailEqualsAndPasswordEquals(email, password);
+    public User getUser(String username, String password){
+        return userDbRepository.findByUsernameEqualsAndPasswordEquals(username, password);
     }
 
     public void deleteUser(Long id){

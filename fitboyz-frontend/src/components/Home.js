@@ -1,6 +1,11 @@
 import React from "react"
 
 const Home = () => {
+  const handleClick = (e) => {
+    e.preventDefault()
+    localStorage.removeItem("token")
+    window.location.href = "/"
+  }
   return (
     <div>
       <div>
@@ -13,6 +18,7 @@ const Home = () => {
         <a href="/workout/new">workout new</a>
         <a href="/progress/new">progress new</a>
       </div>
+      <button onClick={handleClick}>logout</button>
     </div>
   )
 }

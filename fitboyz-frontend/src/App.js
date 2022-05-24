@@ -9,29 +9,41 @@ import Progress from "./components/progress/Progress"
 import NewProgress from "./components/progress/NewProgress"
 import Login from "./components/access/Login"
 import Registration from "./components/access/Registration"
+import NonAuthorized from "./components/access/NonAuthorized"
 
 function App() {
-
-  return (
-    <div>
-      <Router>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/registration" element={<Registration />} />
-
+  if (localStorage.getItem("token") === null){
+return (
+  <div>
+    <Router>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<NonAuthorized />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+        </Routes>
+      </div>
+    </Router>
+  </div>
+)
+  }
+    return (
+      <div>
+        <Router>
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/training-plan" element={<TrainingPlan />} />
               <Route path="/training-plan/new" element={<NewTrainingPlan />} />
               <Route path="/workout" element={<Workout />} />
               <Route path="/workout/new" element={<NewWorkout />} />
               <Route path="/progress" element={<Progress />} />
               <Route path="/progress/new" element={<NewProgress />} />
-          </Routes>
-        </div>
-      </Router>
-    </div>
-  )
+            </Routes>
+          </div>
+        </Router>
+      </div>
+    )
 }
 
 export default App

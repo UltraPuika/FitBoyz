@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import ProgressService from "../../services/ProgressService"
 
 const NewProgress = () => {
-  const [progress, setProgress] = useState({})
   const [name, setName] = useState("")
   const [amount, setAmount] = useState("")
   const [unit, setUnit] = useState("")
@@ -18,12 +17,13 @@ const NewProgress = () => {
     } else if (event.target.name === "date") {
       setDate(event.target.value)
     }
-    setProgress({name, amount, unit, date})
   }
 
   const handleSubmit = (event) => {
-    console.log(progress);
-    ProgressService.createProgress(1, progress).then((res) => {})
+    const id = parseInt(localStorage.getItem("token"))
+    ProgressService.createProgress(id, { name, amount, unit, date }).then(
+      (res) => {}
+    )
     event.preventDefault()
   }
 
@@ -49,7 +49,7 @@ const NewProgress = () => {
         </label>
         <label>
           Date:
-          <input type="text" name="date" value={date} onChange={handleChange} />
+          <input type="date" name="date" value={date} onChange={handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>

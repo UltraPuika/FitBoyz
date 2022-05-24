@@ -17,8 +17,8 @@ public class UserService {
     private final UserDbClient userDbClient;
     private final UserManipulator userManipulator;
 
-    public UserDto getUserDto(String email, String password){
-        User user = userDbClient.getUser(email, password);
+    public UserDto getUserDto(String username, String password){
+        User user = userDbClient.getUser(username, password);
         return userManipulator.convertUserToDto(user);
     }
 

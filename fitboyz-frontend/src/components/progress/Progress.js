@@ -11,7 +11,8 @@ const Progress = () => {
   }, [])
 
   const getProgress = () => {
-    ProgressService.getProgress(1).then((res) => {
+    const id = parseInt(localStorage.getItem("token"))
+    ProgressService.getProgress(id).then((res) => {
       setProgress(res.data)
     })
   }

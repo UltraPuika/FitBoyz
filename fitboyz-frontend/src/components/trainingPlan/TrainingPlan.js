@@ -9,7 +9,8 @@ const TrainingPlan = () => {
   }, [])
 
   const getTrainingPlans = () => {
-    TrainingPlanService.getTrainingPlans(1).then((res) => {
+    const id = parseInt(localStorage.getItem("token"))
+    TrainingPlanService.getTrainingPlans(id).then((res) => {
       setTrainingPlan(res.data)
     })
   }

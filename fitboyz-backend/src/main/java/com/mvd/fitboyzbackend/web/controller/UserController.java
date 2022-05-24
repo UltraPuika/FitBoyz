@@ -25,9 +25,9 @@ public class UserController {
     }
 
     @GetMapping()
-    public ResponseEntity<UserDto> getUser(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<UserDto> getUser(@RequestParam String username, @RequestParam String password) {
 
-        UserDto userDto = userService.getUserDto(email, password);
+        UserDto userDto = userService.getUserDto(username, password);
 
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }

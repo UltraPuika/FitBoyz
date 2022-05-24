@@ -9,7 +9,8 @@ const Workout = () => {
   }, [])
 
   const getWorkouts = () => {
-    WorkoutService.getWorkouts(1).then((res) => {
+    const id = parseInt(localStorage.getItem("token"))
+    WorkoutService.getWorkouts(id).then((res) => {
       setWorkouts(res.data)
     })
   }

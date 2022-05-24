@@ -23,6 +23,7 @@ const Registration = () => {
     if (password === confirmPass) {
       AccessService.createUser(user)
     }
+     window.location.href = "/"
   }
 
   return (
