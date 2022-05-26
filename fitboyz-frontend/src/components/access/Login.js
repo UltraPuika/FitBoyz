@@ -15,10 +15,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    AccessService.getUser(username, password).then((res) => {
-      localStorage.setItem("token", res.data.id)
-    })
-     window.location.href = "/"
+    AccessService.getUser(username, password)
+      .then((res) => {
+        localStorage.setItem("token", res.data.id)
+      })
+      .then(() => (window.location.href = "/"))
+    
   }
 
   return (
