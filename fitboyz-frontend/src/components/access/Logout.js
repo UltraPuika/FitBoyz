@@ -3,8 +3,7 @@ import React from "react"
 const Logout = () => {
   const handleClick = (e) => {
     e.preventDefault()
-    localStorage.removeItem("token")
-    window.location.href = "/"
+    sessionStorage.removeItem("token").then(() => (window.location.href = "/"))
   }
 
   return (

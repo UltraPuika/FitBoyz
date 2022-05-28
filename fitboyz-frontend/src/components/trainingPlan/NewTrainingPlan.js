@@ -7,7 +7,6 @@ const NewTrainingPlan = () => {
   const [trainingPlan, setTrainingPlan] = useState({})
   const [title, setTitle] = useState("")
   const [planLength, setPlanLength] = useState("")
-  const [date, setDate] = useState("")
   const [numberOfSessions, setNumberOfSessions] = useState("")
 
   const [sessions, setSessions] = useState([
@@ -30,7 +29,6 @@ const NewTrainingPlan = () => {
     setTrainingPlan({
       title,
       planLength,
-      date,
       sessions,
       numberOfSessions,
     })
@@ -62,8 +60,6 @@ const NewTrainingPlan = () => {
       setTitle(event.target.value)
     } else if (event.target.name === "planLength") {
       setPlanLength(event.target.value)
-    } else if (event.target.name === "date") {
-      setDate(event.target.value)
     } else if (event.target.name === "numberOfSessions") {
       setNumberOfSessions(event.target.value)
     }
@@ -71,7 +67,7 @@ const NewTrainingPlan = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const id = parseInt(localStorage.getItem("token"))
+    const id = parseInt(sessionStorage.getItem("token"))
     trainingPlan.sessions.forEach((session) => {
       delete session.id
       session.sessionExercises.forEach((exercise) => {
@@ -81,7 +77,6 @@ const NewTrainingPlan = () => {
     TrainingPlanService.createTrainingPlan(id, {
       title,
       planLength,
-      date,
       sessions,
       numberOfSessions,
     }).then((res) => {})
@@ -102,15 +97,12 @@ const NewTrainingPlan = () => {
         <label>
           Plan Length:
           <input
-            type="text"
+            type="number"
             name="planLength"
             value={planLength}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Date:
-          <input type="text" name="date" value={date} onChange={handleChange} />
+          weeks
         </label>
         {sessions.map((session) => (
           <NewSession
@@ -127,9 +119,9 @@ const NewTrainingPlan = () => {
         ))}
 
         <label>
-          Number Of Sessions:
+          Number of sessions per week:
           <input
-            type="text"
+            type="number"
             name="numberOfSessions"
             value={numberOfSessions}
             onChange={handleChange}

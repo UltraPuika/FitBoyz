@@ -3,6 +3,7 @@ import ProgressService from "../../services/ProgressService"
 
 const NewProgress = () => {
   const [name, setName] = useState("")
+  const [reps, setReps] = useState("")
   const [amount, setAmount] = useState("")
   const [unit, setUnit] = useState("")
   const [date, setDate] = useState("")
@@ -10,6 +11,8 @@ const NewProgress = () => {
   const handleChange = (event) => {
     if (event.target.name === "name") {
       setName(event.target.value)
+    } else if (event.target.name === "reps") {
+      setReps(event.target.value)
     } else if (event.target.name === "amount") {
       setAmount(event.target.value)
     } else if (event.target.name === "unit") {
@@ -20,8 +23,8 @@ const NewProgress = () => {
   }
 
   const handleSubmit = (event) => {
-    const id = parseInt(localStorage.getItem("token"))
-    ProgressService.createProgress(id, { name, amount, unit, date }).then(
+    const id = parseInt(sessionStorage.getItem("token"))
+    ProgressService.createProgress(id, { name, reps, amount, unit, date }).then(
       (res) => {}
     )
     event.preventDefault()
@@ -35,9 +38,18 @@ const NewProgress = () => {
           <input type="text" name="name" value={name} onChange={handleChange} />
         </label>
         <label>
+          Reps:
+          <input
+            type="number"
+            name="reps"
+            value={reps}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
           Amount:
           <input
-            type="text"
+            type="number"
             name="amount"
             value={amount}
             onChange={handleChange}

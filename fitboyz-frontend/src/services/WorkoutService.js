@@ -9,10 +9,12 @@ class WorkoutService {
   getWorkouts(userId) {
     return axios.get(WORKOUT_API_BASE_URL + USER_PARAM + userId)
   }
-  // add session id
-  createWorkout(workout) {
-    return axios.post(WORKOUT_API_BASE_URL + SESSION_PARAM, workout)
 
+  createWorkout(sessionId, workout) {
+    return axios.post(WORKOUT_API_BASE_URL + SESSION_PARAM + sessionId, workout)
+  }
+  deleteWorkout(id) {
+    return axios.delete(WORKOUT_API_BASE_URL + "/" + id)
   }
 }
 

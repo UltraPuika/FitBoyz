@@ -15,6 +15,10 @@ public class CompletedSessionDbClient {
         return completedSessionDbRepository.save(completedSession);
     }
     public List<CompletedSession> getCompletedSessions(Long id){
-        return completedSessionDbRepository.findBySession_TrainingPlan_User_IdEquals(id);
+        return completedSessionDbRepository.findBySession_TrainingPlan_User_IdEqualsOrderByDateDesc(id);
+    }
+
+    public long deleteEntity(Long id){
+        return completedSessionDbRepository.deleteByIdEquals(id);
     }
 }

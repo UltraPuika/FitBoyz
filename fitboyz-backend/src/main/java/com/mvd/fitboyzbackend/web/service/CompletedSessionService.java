@@ -29,4 +29,7 @@ public class CompletedSessionService {
         List<CompletedSession> completedSessions = completedSessionDbClient.getCompletedSessions(userId);
         return completedSessionManipulator.convertCompletedSessionsToDtos(completedSessions);
     }
+    public long deleteCompletedSession(Long id) {
+        return completedSessionDbClient.deleteEntity(id);
+    }
 }

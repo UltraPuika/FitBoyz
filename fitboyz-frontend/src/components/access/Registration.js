@@ -21,9 +21,8 @@ const Registration = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (password === confirmPass) {
-      AccessService.createUser(user)
+      AccessService.createUser(user).then(() => (window.location.href = "/"))
     }
-     window.location.href = "/"
   }
 
   return (

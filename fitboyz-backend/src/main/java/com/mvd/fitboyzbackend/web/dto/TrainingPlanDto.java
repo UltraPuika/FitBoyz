@@ -9,8 +9,9 @@ import java.util.List;
 public class TrainingPlanDto {
     private Long id;
     private String title;
-    private Long planLength;
+    private Integer planLength;
     private Integer NumberOfSessions;
+    private Boolean isCurrent;
     private LocalDate date;
     private List<SessionDto> sessions;
 }

@@ -17,10 +17,10 @@ const Login = () => {
     e.preventDefault()
     AccessService.getUser(username, password)
       .then((res) => {
-        localStorage.setItem("token", res.data.id)
+        if (res.data.id !== undefined)
+        sessionStorage.setItem("token", res.data.id)
       })
       .then(() => (window.location.href = "/"))
-    
   }
 
   return (

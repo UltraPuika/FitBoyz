@@ -15,4 +15,7 @@ public class SessionDbClient {
         Optional<Session> session = sessionDbRepository.findById(id);
         return session.get();
     }
+    public long deleteEntity(Long id){
+        return sessionDbRepository.deleteByIdEquals(id);
+    }
 }

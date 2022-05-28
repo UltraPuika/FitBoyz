@@ -5,6 +5,7 @@ import com.mvd.fitboyzbackend.web.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,5 +27,11 @@ public class CompletedSessionController {
     public ResponseEntity<List<CompletedSessionDto>> getTrainingPlan(@RequestParam Long userId) {
         List<CompletedSessionDto> completedSessions = completedSessionService.getCompletedSessions(userId);
         return new ResponseEntity<>(completedSessions, HttpStatus.OK);
+    }
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Long> deleteCompletedSession(@PathVariable("id") Long id) {
+        completedSessionService.deleteCompletedSession(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

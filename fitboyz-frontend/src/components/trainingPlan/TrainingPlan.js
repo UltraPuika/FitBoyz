@@ -9,43 +9,70 @@ const TrainingPlan = () => {
   }, [])
 
   const getTrainingPlans = () => {
-    const id = parseInt(localStorage.getItem("token"))
+    const id = parseInt(sessionStorage.getItem("token"))
     TrainingPlanService.getTrainingPlans(id).then((res) => {
       setTrainingPlan(res.data)
+    })
+  }
+  const deletePlan = (id) => {
+    TrainingPlanService.deletePlan(id).then((res) => {
+      getTrainingPlans()
+    })
+  }
+  const setCurrentPlan = (id) => {
+    TrainingPlanService.setCurrentTrainingPlan(id).then((res) => {
+      getTrainingPlans()
+    })
+  }
+  const deleteSession = (id) => {
+    TrainingPlanService.deleteSession(id).then((res) => {
+      getTrainingPlans()
     })
   }
 
   return (
     <div>
       {trainingPlans.map(
-        ({ id, title, planLength, date, sessions, numberOfSessions }) => {
+        ({ id, title, planLength, sessions, numberOfSessions }) => {
           return (
             <div key={id}>
               <div>{title}</div>
               <div>{planLength}</div>
-              <div>{date}</div>
               <div>{numberOfSessions}</div>
               <div>
-                {sessions.map(({ id, title, intensity, sessionExercises }) => {
+                {sessions.map(({ id, sessionTitle, intensity }) => {
                   return (
                     <div key={id}>
-                      <div>{title}</div>
+                      <div>{sessionTitle}</div>
                       <div>{intensity}</div>
-                      <div>
-                        {sessionExercises.map(({ id, name, sets, reps }) => {
-                          return (
-                            <div key={id}>
-                              <div>{name}</div>
-                              <div>{sets}</div>
-                              <div>{reps}</div>
-                            </div>
-                          )
-                        })}
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          (window.location.href = "/new-workout/" + id)
+                        }
+                      >
+                        Start workout
+                      </button>
+                      <button type="button" onClick={() => deleteSession(id)}>
+                        Delete session
+                      </button>
                     </div>
                   )
                 })}
               </div>
+              <button
+                type="button"
+                onClick={() => (window.location.href = "/training-plan/" + id)}
+              >
+                view
+              </button>
+
+              <button type="button" onClick={() => setCurrentPlan(id)}>
+                set current training plan
+              </button>
+              <button type="button" onClick={() => deletePlan(id)}>
+                Delete training plan
+              </button>
             </div>
           )
         }

@@ -4,4 +4,6 @@ import com.mvd.fitboyzbackend.db.model.*;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface SessionDbRepository extends PagingAndSortingRepository<Session, Long> {
+    long deleteByIdEquals(Long id);
+
 }

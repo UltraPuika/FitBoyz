@@ -11,7 +11,7 @@ const Progress = () => {
   }, [])
 
   const getProgress = () => {
-    const id = parseInt(localStorage.getItem("token"))
+    const id = parseInt(sessionStorage.getItem("token"))
     ProgressService.getProgress(id).then((res) => {
       setProgress(res.data)
     })
@@ -19,10 +19,11 @@ const Progress = () => {
 
   return (
     <div>
-      {progress.map(({ id, name, amount, unit, date }) => {
+      {progress.map(({ id, name, amount, reps, unit, date }) => {
         return (
           <div key={id}>
             <div>{name}</div>
+            <div>{reps}</div>
             <div>{amount}</div>
             <div>{unit}</div>
             <div>{date}</div>

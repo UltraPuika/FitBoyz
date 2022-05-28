@@ -9,11 +9,17 @@ const Workout = () => {
   }, [])
 
   const getWorkouts = () => {
-    const id = parseInt(localStorage.getItem("token"))
+    const id = parseInt(sessionStorage.getItem("token"))
     WorkoutService.getWorkouts(id).then((res) => {
       setWorkouts(res.data)
     })
   }
+    const deleteWorkout = (id) => {
+      WorkoutService.deleteWorkout(id).then((res) => {
+        getWorkouts()
+      })
+    }
+
   return (
     <div>
       {workouts.map(({ id, date, completedExercises }) => {
@@ -35,6 +41,9 @@ const Workout = () => {
                 }
               )}
             </div>
+            <button type="button" onClick={() => deleteWorkout(id)}>
+              Delete workout
+            </button>
           </div>
         )
       })}

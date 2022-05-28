@@ -17,8 +17,9 @@ public class TrainingPlan {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private Long planLength;
+    private Integer planLength;
     private Integer NumberOfSessions;
+    private Boolean isCurrent;
     private LocalDate date;
     @ManyToOne
     private User user;

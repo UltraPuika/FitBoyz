@@ -30,7 +30,7 @@ const NewSession = ({
     setSessionExercises(newSessionExercises)
 
     const tempSessions = sessions
-    tempSessions.map((temp) => {
+    tempSessions.forEach((temp) => {
       if (sesId === temp.id) {
         temp.sessionExercises = sessionExercises
       }
@@ -75,12 +75,16 @@ const NewSession = ({
       </label>
       <label>
         Intensity:
-        <input
-          type="text"
+        <select
           name="intensity"
-          value={session.intensity}
           onChange={(event) => handleChangeS(session.id, event)}
-        />
+          value={session.intensity}
+        >
+          <option value="">Not specified</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
       </label>
       {sessionExercises.map((exercise) => (
         <div key={exercise.id}>
@@ -98,7 +102,7 @@ const NewSession = ({
           <label>
             Sets:
             <input
-              type="text"
+              type="number"
               name="sets"
               value={exercise.sets}
               onChange={(event) =>
@@ -109,7 +113,7 @@ const NewSession = ({
           <label>
             Reps:
             <input
-              type="text"
+              type="number"
               name="reps"
               value={exercise.reps}
               onChange={(event) =>
@@ -119,7 +123,7 @@ const NewSession = ({
           </label>
           <button
             type="button"
-            disabled={session.length === 1}
+            disabled={sessionExercises.length === 1}
             onClick={() => handleRemoveExercise(exercise.id)}
           >
             remove exer
@@ -131,7 +135,7 @@ const NewSession = ({
       ))}
       <button
         type="button"
-        disabled={session.length === 1}
+        disabled={sessions.length === 1}
         onClick={() => handleRemoveSession(session.id)}
       >
         remove sess

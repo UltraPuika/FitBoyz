@@ -16,6 +16,7 @@ public class Progress {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private Integer reps;
     private Integer amount;
     private String unit;
     private LocalDate date;

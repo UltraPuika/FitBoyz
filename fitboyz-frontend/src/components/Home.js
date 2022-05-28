@@ -3,7 +3,7 @@ import React from "react"
 const Home = () => {
   const handleClick = (e) => {
     e.preventDefault()
-    localStorage.removeItem("token")
+    sessionStorage.removeItem("token")
     window.location.href = "/"
   }
   return (
@@ -14,9 +14,9 @@ const Home = () => {
         <a href="/progress">progress</a>
       </div>
       <div>
-        <a href="/training-plan/new">training-plan new</a>
-        <a href="/workout/new">workout new</a>
-        <a href="/progress/new">progress new</a>
+        <a href="/new-training-plan">training-plan new</a>
+        <a href="/current-plan">current</a>
+        <a href="/new-progress">progress new</a>
       </div>
       <button onClick={handleClick}>logout</button>
     </div>

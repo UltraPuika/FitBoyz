@@ -1,21 +1,52 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
 import WorkoutService from "../../services/WorkoutService"
+import TrainingPlanService from "../../services/TrainingPlanService"
 
 const NewWorkout = () => {
   const [workout, setWorkout] = useState({})
   const [date, setDate] = useState("")
+  const [completedExercises, setCompletedExercises] = useState([])
+  const [sessionName, setSessionName] = useState()
 
-  const [completedExercises, setCompletedExercises] = useState([
-    {
-      id: uuidv4(),
-      name: "",
-      completedSets: "",
-      completedReps: "",
-      amount: "",
-      unit: "",
-    },
-  ])
+  const { sessionId } = useParams()
+
+  useEffect(() => {
+    setToday()
+    getSession(sessionId)
+  }, [])
+
+  const setToday = () => {
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth() + 1
+    const day = new Date().getDate()
+    const monthString = month < 10 ? "0" + month : month
+    const currentDate = year + "-" + monthString + "-" + day
+    setDate(currentDate)
+  }
+
+  const getSession = (id) => {
+    TrainingPlanService.getSession(id).then((res) => {
+      setSessionName(res.data.sessionTitle)
+      let exercises = []
+      res.data.sessionExercises.forEach((exercise) => {
+        exercises = [
+          ...exercises,
+          {
+            id: uuidv4(),
+            name: exercise.name,
+            completedSets: exercise.sets,
+            completedReps: exercise.reps,
+            amount: "",
+            unit: "",
+          },
+        ]
+      })
+      setCompletedExercises(exercises)
+      setWorkout({ date, completedExercises })
+    })
+  }
 
   const handleChange = (event) => {
     if (event.target.name === "date") {
@@ -63,18 +94,18 @@ const NewWorkout = () => {
     workout.completedExercises.forEach((element) => {
       delete element.id
     })
-// add session id
-    WorkoutService.createWorkout(workout).then((res) => {
+    WorkoutService.createWorkout(sessionId, workout).then((res) => {
       console.log(res)
     })
   }
 
   return (
     <div>
+      <h1>{sessionName} workout</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Date:
-          <input type="text" name="date" value={date} onChange={handleChange} />
+          <input type="date" name="date" value={date} onChange={handleChange} />
         </label>
         {completedExercises.map((exercise) => (
           <div key={exercise.id}>
@@ -90,7 +121,7 @@ const NewWorkout = () => {
             <label>
               Completed Sets:
               <input
-                type="text"
+                type="number"
                 name="completedSets"
                 value={exercise.completedSets}
                 onChange={(event) => handleChangeCE(exercise.id, event)}
@@ -99,7 +130,7 @@ const NewWorkout = () => {
             <label>
               Completed Reps:
               <input
-                type="text"
+                type="number"
                 name="completedReps"
                 value={exercise.completedReps}
                 onChange={(event) => handleChangeCE(exercise.id, event)}
@@ -108,7 +139,7 @@ const NewWorkout = () => {
             <label>
               Amount:
               <input
-                type="text"
+                type="number"
                 name="amount"
                 value={exercise.amount}
                 onChange={(event) => handleChangeCE(exercise.id, event)}
@@ -125,7 +156,7 @@ const NewWorkout = () => {
             </label>
             <button
               type="button"
-              disabled={exercise.length === 1}
+              disabled={completedExercises.length === 1}
               onClick={() => handleRemoveFields(exercise.id)}
             >
               remove
