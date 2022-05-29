@@ -79,7 +79,9 @@ const NewTrainingPlan = () => {
       planLength,
       sessions,
       numberOfSessions,
-    }).then((res) => {})
+    }).then((res) => {
+      window.location.href = "/training-plan"
+    })
   }
 
   return (
