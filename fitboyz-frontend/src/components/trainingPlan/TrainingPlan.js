@@ -32,6 +32,9 @@ const TrainingPlan = () => {
 
   return (
     <div>
+      <button onClick={() => (window.location.href = "/new-training-plan")}>
+        New training plan
+      </button>
       {trainingPlans.map(
         ({ id, title, planLength, sessions, numberOfSessions }) => {
           return (

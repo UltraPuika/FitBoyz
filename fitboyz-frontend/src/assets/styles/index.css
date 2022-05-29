@@ -137,25 +137,29 @@ form label input:-webkit-autofill:active {
 
 .home {
   position: fixed;
-  top: 50%;
+  top: 35%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
+.home .logo {
+  margin-bottom: 50px;
+}
+
+.home .logo img {
+  width: 300px;
+}
+
 .home div {
-  padding: 16px;
+  padding: 16px 64px;
   text-align: center;
-}
-
-.home div a {
-  color: var(--main-white);
   font-size: 32px;
-  text-decoration: none;
 }
 
-.home div a:hover {
-  color: #ddd;
+.home .item:hover {
+  background-color: #353535;
+  cursor: pointer;
 }
 
 .home button {
@@ -163,5 +167,7 @@ form label input:-webkit-autofill:active {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  margin-top: 50px;
+  font-size: 24px;
 }
 /*# sourceMappingURL=index.css.map */

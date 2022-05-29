@@ -12,23 +12,28 @@ const Home = () => {
       <div className="logo">
         <img src={Logo} alt="logo" />
       </div>
-      <div>
-        <a href="/training-plan">Training-plans</a>
+      <div
+        onClick={() => (window.location.href = "/training-plan")}
+        className="item"
+      >
+        Training plans
       </div>
-      <div>
-        <a href="/workout">Previous workouts</a>
+      <div onClick={() => (window.location.href = "/workout")} className="item">
+        Previous workouts
       </div>
-      <div>
-        <a href="/current-plan">Current plan</a>
+      <div
+        onClick={() => (window.location.href = "/current-plan")}
+        className="item"
+      >
+        Current plan
       </div>
-      <div>
-        <a href="/progress">Progress</a>
+      <div
+        onClick={() => (window.location.href = "/progress")}
+        className="item"
+      >
+        Progress
       </div>
-      <button onClick={handleClick}>logout</button>
-      {/* <div>
-        <a href="/new-training-plan">training-plan new</a>
-        <a href="/new-progress">progress new</a>
-      </div> */}
+      <button onClick={handleClick}>Logout</button>
     </div>
   )
 }

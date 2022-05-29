@@ -19,6 +19,9 @@ const Progress = () => {
 
   return (
     <div>
+      <button onClick={() => (window.location.href = "/new-progress")}>
+        Add progress
+      </button>
       {progress.map(({ id, name, amount, reps, unit, date }) => {
         return (
           <div key={id}>

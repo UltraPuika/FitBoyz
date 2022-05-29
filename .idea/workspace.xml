@@ -5,71 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ff9045f-7e98-405c-b062-52a2efdfb181" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/FitboyzApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/CompletedExerciseDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/CompletedSessionDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/ExerciseDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/ProgressDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/SessionDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/SessionExerciseDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/TrainingPlanDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/client/UserDbClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/CompletedExercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/CompletedSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Exercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Progress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/SessionExercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/TrainingPlan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/CompletedExercisesDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/CompletedSessionDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/ExerciseDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/ProgressDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/SessionDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/SessionExerciseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/TrainingPlanDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/db/repository/UserDbRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/CompletedExerciseMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/CompletedSessionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/ProgressMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/TrainingPlanMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/CompletedSessionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/ProgressController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/TrainingPlanController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/CompletedExerciseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/CompletedSessionDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/ExerciseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/OverallProgressDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/ProgressDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/SessionDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/SessionExerciseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/TrainingPlanDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/dto/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/CompletedSessionManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/ProgressManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/TrainingPlanManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/manipulator/UserManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/CompletedSessionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/ProgressService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/TrainingPlanService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/java/com/mvd/fitboyz/web/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitboyz-backend/src/test/java/com/mvd/fitboyz/FitboyzApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-frontend/src/assets/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/fitboyz-frontend/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitboyz-frontend/src/components/access/Logout.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
