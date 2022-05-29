@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import TrainingPlanService from "../../services/TrainingPlanService"
 import NewSession from "./NewSession"
+import Navbar from "../Navbar"
 
 const NewTrainingPlan = () => {
   const [trainingPlan, setTrainingPlan] = useState({})
@@ -86,51 +87,54 @@ const NewTrainingPlan = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Plan Length:
-          <input
-            type="number"
-            name="planLength"
-            value={planLength}
-            onChange={handleChange}
-          />
-          weeks
-        </label>
-        {sessions.map((session) => (
-          <NewSession
-            key={session.id}
-            session={session}
-            handleChangeS={handleChangeS}
-            handleRemoveSession={handleRemoveSession}
-            handleAddSession={handleAddSession}
-            setSessions={setSessions}
-            setTrainingPlan={setTrainingPlan}
-            sessions={sessions}
-            trainingPlan={trainingPlan}
-          />
-        ))}
+      <Navbar />
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Plan Length:
+            <input
+              type="number"
+              name="planLength"
+              value={planLength}
+              onChange={handleChange}
+            />
+            weeks
+          </label>
+          {sessions.map((session) => (
+            <NewSession
+              key={session.id}
+              session={session}
+              handleChangeS={handleChangeS}
+              handleRemoveSession={handleRemoveSession}
+              handleAddSession={handleAddSession}
+              setSessions={setSessions}
+              setTrainingPlan={setTrainingPlan}
+              sessions={sessions}
+              trainingPlan={trainingPlan}
+            />
+          ))}
 
-        <label>
-          Number of sessions per week:
-          <input
-            type="number"
-            name="numberOfSessions"
-            value={numberOfSessions}
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+          <label>
+            Number of sessions per week:
+            <input
+              type="number"
+              name="numberOfSessions"
+              value={numberOfSessions}
+              onChange={handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
   )
 }

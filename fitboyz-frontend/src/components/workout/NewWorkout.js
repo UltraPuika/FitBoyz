@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
 import WorkoutService from "../../services/WorkoutService"
 import TrainingPlanService from "../../services/TrainingPlanService"
+import Navbar from "../Navbar"
 
 const NewWorkout = () => {
   const [workout, setWorkout] = useState({})
@@ -101,73 +102,81 @@ const NewWorkout = () => {
 
   return (
     <div>
-      <h1>{sessionName} workout</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Date:
-          <input type="date" name="date" value={date} onChange={handleChange} />
-        </label>
-        {completedExercises.map((exercise) => (
-          <div key={exercise.id}>
-            <label>
-              Name:
-              <input
-                type="text"
-                name="name"
-                value={exercise.name}
-                onChange={(event) => handleChangeCE(exercise.id, event)}
-              />
-            </label>
-            <label>
-              Completed Sets:
-              <input
-                type="number"
-                name="completedSets"
-                value={exercise.completedSets}
-                onChange={(event) => handleChangeCE(exercise.id, event)}
-              />
-            </label>
-            <label>
-              Completed Reps:
-              <input
-                type="number"
-                name="completedReps"
-                value={exercise.completedReps}
-                onChange={(event) => handleChangeCE(exercise.id, event)}
-              />
-            </label>
-            <label>
-              Amount:
-              <input
-                type="number"
-                name="amount"
-                value={exercise.amount}
-                onChange={(event) => handleChangeCE(exercise.id, event)}
-              />
-            </label>
-            <label>
-              Unit:
-              <input
-                type="text"
-                name="unit"
-                value={exercise.unit}
-                onChange={(event) => handleChangeCE(exercise.id, event)}
-              />
-            </label>
-            <button
-              type="button"
-              disabled={completedExercises.length === 1}
-              onClick={() => handleRemoveFields(exercise.id)}
-            >
-              remove
-            </button>
-            <button type="button" onClick={handleAddFields}>
-              add
-            </button>
-          </div>
-        ))}
-        <input type="submit" value="Submit" />
-      </form>
+      <Navbar />
+      <div>
+        <h1>{sessionName} workout</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Date:
+            <input
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleChange}
+            />
+          </label>
+          {completedExercises.map((exercise) => (
+            <div key={exercise.id}>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  name="name"
+                  value={exercise.name}
+                  onChange={(event) => handleChangeCE(exercise.id, event)}
+                />
+              </label>
+              <label>
+                Completed Sets:
+                <input
+                  type="number"
+                  name="completedSets"
+                  value={exercise.completedSets}
+                  onChange={(event) => handleChangeCE(exercise.id, event)}
+                />
+              </label>
+              <label>
+                Completed Reps:
+                <input
+                  type="number"
+                  name="completedReps"
+                  value={exercise.completedReps}
+                  onChange={(event) => handleChangeCE(exercise.id, event)}
+                />
+              </label>
+              <label>
+                Amount:
+                <input
+                  type="number"
+                  name="amount"
+                  value={exercise.amount}
+                  onChange={(event) => handleChangeCE(exercise.id, event)}
+                />
+              </label>
+              <label>
+                Unit:
+                <input
+                  type="text"
+                  name="unit"
+                  value={exercise.unit}
+                  onChange={(event) => handleChangeCE(exercise.id, event)}
+                />
+              </label>
+              <button
+                type="button"
+                disabled={completedExercises.length === 1}
+                onClick={() => handleRemoveFields(exercise.id)}
+              >
+                remove
+              </button>
+              <button type="button" onClick={handleAddFields}>
+                add
+              </button>
+            </div>
+          ))}
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
   )
 }

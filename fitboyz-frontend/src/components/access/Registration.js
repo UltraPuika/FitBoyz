@@ -28,40 +28,47 @@ const Registration = () => {
 
   return (
     <div className="register-div">
-      <img src={Logo} alt="Logo" />
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Confirm password:
-          <input
-            type="password"
-            name="confirm"
-            value={confirmPass}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Sign up</button>
-        <div>
-          Already have an account? <a href="/">Log in</a>
-        </div>
-      </form>
+      <div className="logo">
+        <img src={Logo} alt="Logo" />
+      </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Confirm password:
+            <input
+              type="password"
+              name="confirm"
+              value={confirmPass}
+              onChange={handleChange}
+            />
+          </label>
+          <div>
+            <button type="submit">Sign up</button>
+          </div>
+        </form>
+      </div>
+
+      <div className="link">
+        Already have an account? <a href="/">Log in</a>
+      </div>
     </div>
   )
 }

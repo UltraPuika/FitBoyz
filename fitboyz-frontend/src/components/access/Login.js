@@ -26,31 +26,38 @@ const Login = () => {
 
   return (
     <div className="login-div">
-      <img src={Logo} alt="Logo" />
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            placeholder="Username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            placeholder="Password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      <div>
+      <div className="logo">
+        <img src={Logo} alt="Logo" />
+      </div>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              placeholder="Username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </label>
+          <div>
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+
+      <div className="link">
         Don't have an account? <a href="/registration">Sign up</a>
       </div>
     </div>

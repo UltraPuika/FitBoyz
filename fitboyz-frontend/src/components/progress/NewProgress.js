@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import ProgressService from "../../services/ProgressService"
+import Navbar from "../Navbar"
 
 const NewProgress = () => {
   const [name, setName] = useState("")
@@ -32,39 +33,57 @@ const NewProgress = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-        <label>
-          Reps:
-          <input
-            type="number"
-            name="reps"
-            value={reps}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Amount:
-          <input
-            type="number"
-            name="amount"
-            value={amount}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Unit:
-          <input type="text" name="unit" value={unit} onChange={handleChange} />
-        </label>
-        <label>
-          Date:
-          <input type="date" name="date" value={date} onChange={handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Navbar />
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Reps:
+            <input
+              type="number"
+              name="reps"
+              value={reps}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Amount:
+            <input
+              type="number"
+              name="amount"
+              value={amount}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Unit:
+            <input
+              type="text"
+              name="unit"
+              value={unit}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Date:
+            <input
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
   )
 }
