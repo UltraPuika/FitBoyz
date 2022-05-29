@@ -1,53 +1,67 @@
-import React, { useState, useEffect } from "react"
-import TrainingPlanService from "../../services/TrainingPlanService"
+import React, { useState, useEffect } from "react";
+import TrainingPlanService from "../../services/TrainingPlanService";
 
 const TrainingPlan = () => {
-  const [trainingPlans, setTrainingPlan] = useState([])
+  const [trainingPlans, setTrainingPlan] = useState([]);
 
   useEffect(() => {
-    getTrainingPlans()
-  }, [])
+    getTrainingPlans();
+  }, []);
 
   const getTrainingPlans = () => {
-    const id = parseInt(sessionStorage.getItem("token"))
+    const id = parseInt(sessionStorage.getItem("token"));
     TrainingPlanService.getTrainingPlans(id).then((res) => {
-      setTrainingPlan(res.data)
-    })
-  }
+      setTrainingPlan(res.data);
+    });
+  };
   const deletePlan = (id) => {
     TrainingPlanService.deletePlan(id).then((res) => {
-      getTrainingPlans()
-    })
-  }
+      getTrainingPlans();
+    });
+  };
   const setCurrentPlan = (id) => {
     TrainingPlanService.setCurrentTrainingPlan(id).then((res) => {
-      getTrainingPlans()
-    })
-  }
+      getTrainingPlans();
+    });
+  };
   const deleteSession = (id) => {
     TrainingPlanService.deleteSession(id).then((res) => {
-      getTrainingPlans()
-    })
-  }
+      getTrainingPlans();
+    });
+  };
 
   return (
-    <div>
-      <button onClick={() => (window.location.href = "/new-training-plan")}>
+    <div className="new-training-plan">
+      <button
+        style={{ position:"fixed", left: "20px", top: "20px"}}
+        onClick={() => (window.location.href = "/new-training-plan")}
+      >
         New training plan
       </button>
       {trainingPlans.map(
         ({ id, title, planLength, sessions, numberOfSessions }) => {
           return (
-            <div key={id}>
-              <div>{title}</div>
-              <div>{planLength}</div>
-              <div>{numberOfSessions}</div>
+            <div className="box" key={id}>
+              <h1 id="1">{title}</h1>
+
+              <div className="Align-texts">
+                <p>Plan Length</p> <h2>{planLength}</h2>
+              </div>
+              <div className="Align-texts">
+                <p>Session Count</p> <h2>{numberOfSessions}</h2>
+              </div>
               <div>
                 {sessions.map(({ id, sessionTitle, intensity }) => {
                   return (
-                    <div key={id}>
-                      <div>{sessionTitle}</div>
-                      <div>{intensity}</div>
+                    <div className="Session-container" key={id}>
+                      <div className="Align-texts">
+                        <p>Title</p> <h3>{sessionTitle}</h3>
+                      </div>
+
+                      <div className="Align-texts">
+                        <p>Intensity</p> <h3>{intensity}</h3>
+                      </div>
+                      <div className="session-button-group">
                       <button
                         type="button"
                         onClick={() =>
@@ -59,29 +73,36 @@ const TrainingPlan = () => {
                       <button type="button" onClick={() => deleteSession(id)}>
                         Delete session
                       </button>
+                      </div>
+                      
                     </div>
-                  )
+                  );
                 })}
               </div>
-              <button
-                type="button"
-                onClick={() => (window.location.href = "/training-plan/" + id)}
-              >
-                view
-              </button>
+              <div className="button-group">
+                <div className="split-line"></div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    (window.location.href = "/training-plan/" + id)
+                  }
+                >
+                  view
+                </button>
 
-              <button type="button" onClick={() => setCurrentPlan(id)}>
-                set current training plan
-              </button>
-              <button type="button" onClick={() => deletePlan(id)}>
-                Delete training plan
-              </button>
+                <button type="button" onClick={() => setCurrentPlan(id)}>
+                  set current training plan
+                </button>
+                <button type="button" onClick={() => deletePlan(id)}>
+                  Delete Plan
+                </button>
+              </div>
             </div>
-          )
+          );
         }
       )}
     </div>
-  )
-}
+  );
+};
 
-export default TrainingPlan
+export default TrainingPlan;

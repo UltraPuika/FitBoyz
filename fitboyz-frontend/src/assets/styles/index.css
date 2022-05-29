@@ -23,6 +23,7 @@ button {
   font-size: 20px;
   padding: 6px;
   width: 192px;
+  height: 3rem;
   border: 2px solid var(--main-white);
   border-radius: 16px;
   background: var(--main-white);
@@ -169,5 +170,94 @@ form label input:-webkit-autofill:active {
           transform: translateX(-50%);
   margin-top: 50px;
   font-size: 24px;
+}
+
+.new-training-plan {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 2fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  gap: 50px;
+  margin: 10%;
+}
+
+.new-training-plan .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: .5rem;
+  width: 100%;
+  border: 0.4rem solid white;
+  border-radius: 30px;
+}
+
+.new-training-plan .box h2, .new-training-plan .box h3, .new-training-plan .box p {
+  padding: 0;
+  margin: 0;
+}
+
+.new-training-plan .box .Align-texts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-training-plan .box .Align-texts p {
+  margin-right: 13px;
+}
+
+.new-training-plan .box .Session-container {
+  height: 190px;
+}
+
+.new-training-plan .box .Session-container .session-button-group {
+  height: 110px;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.new-training-plan .box .button-group {
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-training-plan .box .button-group .split-line {
+  background: white;
+  width: 90%;
+  height: 3px;
 }
 /*# sourceMappingURL=index.css.map */
