@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import AccessService from "../../services/AccessService"
+import Logo from "../../assets/images/Logo.svg"
 
 const Registration = () => {
   const [user, setUser] = useState({})
@@ -26,7 +27,8 @@ const Registration = () => {
   }
 
   return (
-    <div>
+    <div className="register-div">
+      <img src={Logo} alt="Logo" />
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -55,7 +57,10 @@ const Registration = () => {
             onChange={handleChange}
           />
         </label>
-        <input type="submit" value="submit" />
+        <button type="submit">Sign up</button>
+        <div>
+          Already have an account? <a href="/">Log in</a>
+        </div>
       </form>
     </div>
   )

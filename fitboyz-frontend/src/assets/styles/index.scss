@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-black: #2b2b2b;
+  --main-white: #f6f6f6;
+}
+body {
+  background: var(--main-black);
+  font-family: "Roboto", sans-serif;
+  color: var(--main-white);
+  font-weight: 300;
+}
+button {
+  display: block;
+  font-size: 20px;
+  padding: 6px;
+  width: 192px;
+  border: 2px solid var(--main-white);
+  border-radius: 16px;
+  background: var(--main-white);
+  text-align: center;
+  color: black;
+  transition: linear 0.25s;
+  cursor: pointer;
+}
+button:hover {
+  border: 2px solid var(--main-white);
+  border-radius: 16px;
+  background: var(--main-black);
+  text-align: center;
+  color: var(--main-white);
+}
+form {
+  label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    input,
+    input:hover,
+    input:focus,
+    input:active {
+      display: block;
+      font-size: 20px;
+      padding: 8px;
+      margin: 4px 0px;
+      border: 2px solid var(--main-white);
+      border-radius: 16px;
+      background: var(--main-black);
+      text-align: center;
+      color: var(--main-white);
+      outline: none;
+      caret-color: var(--main-white);
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px var(--main-black) inset !important;
+      -webkit-text-fill-color: var(--main-white) !important;
+      font-size: 20px !important;
+      border: 2px solid var(--main-white);
+    }
+  }
+}
+
+// LOGIN
+.login-div,
+.register-div {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    margin-bottom: 100px;
+  }
+  button {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  div {
+    position: fixed;
+    top: 120%;
+    left: 50%;
+    font-size: 14px;
+    transform: translate(-50%, -85%);
+    width: 225px;
+    text-align: center;
+    a {
+      color: var(--main-white);
+    }
+    a:hover {
+      color: #ddd;
+    }
+  }
+}
+// REGISTER
+.register-div {
+  div {
+    top: 115%;
+    transform: translate(-50%, -55%);
+  }
+}
+//HOME
+.home {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  div {
+    padding: 16px;
+    text-align: center;
+    a {
+      color: var(--main-white);
+      font-size: 32px;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #ddd;
+    }
+  }
+  button {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

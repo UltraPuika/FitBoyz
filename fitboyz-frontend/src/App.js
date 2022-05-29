@@ -9,7 +9,6 @@ import Progress from "./components/progress/Progress"
 import NewProgress from "./components/progress/NewProgress"
 import Login from "./components/access/Login"
 import Registration from "./components/access/Registration"
-import NonAuthorized from "./components/access/NonAuthorized"
 import Plan from "./components/trainingPlan/Plan"
 import CurrentPlan from "./components/trainingPlan/CurrentPlan"
 
@@ -20,8 +19,7 @@ function App() {
         <Router>
           <div className="container">
             <Routes>
-              <Route path="/" element={<NonAuthorized />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
             </Routes>
           </div>

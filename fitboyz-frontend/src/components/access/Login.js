@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import AccessService from "../../services/AccessService"
+import Logo from "../../assets/images/Logo.svg"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -18,17 +19,19 @@ const Login = () => {
     AccessService.getUser(username, password)
       .then((res) => {
         if (res.data.id !== undefined)
-        sessionStorage.setItem("token", res.data.id)
+          sessionStorage.setItem("token", res.data.id)
       })
       .then(() => (window.location.href = "/"))
   }
 
   return (
-    <div>
+    <div className="login-div">
+      <img src={Logo} alt="Logo" />
       <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input
+            placeholder="Username"
             type="text"
             name="username"
             value={username}
@@ -38,14 +41,18 @@ const Login = () => {
         <label>
           Password:
           <input
+            placeholder="Password"
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
         </label>
-        <input type="submit" value="submit" />
+        <button type="submit">Login</button>
       </form>
+      <div>
+        Don't have an account? <a href="/registration">Sign up</a>
+      </div>
     </div>
   )
 }
