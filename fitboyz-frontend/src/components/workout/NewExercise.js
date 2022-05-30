@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
+import { FaPlus, FaMinus } from "react-icons/fa"
 
 const NewExercise = ({
   exercise,
@@ -8,11 +9,8 @@ const NewExercise = ({
   setCompletedExercises,
   setWorkout,
   completedExercises,
-  workout}
-) => {
-  useEffect(() => {
-    console.log(exercise)
-  }, [])
+  workout,
+}) => {
   const [sets, setSets] = useState(exercise.sets)
 
   const handleChangeS = (exerId, id, event) => {
@@ -57,57 +55,77 @@ const NewExercise = ({
   }
 
   return (
-    <div key={exercise.id}>
+    <div className="exercise" key={exercise.id}>
       <label>
-        Name:
+        Exercise:
         <input
+          className="add-workout"
           type="text"
           name="name"
           value={exercise.name}
           onChange={(event) => handleChangeCE(exercise.id, event)}
         />
+        {completedExercises.length > 1 && (
+          <FaMinus
+            className="icon"
+            onClick={() => handleRemoveExercise(exercise.id)}
+          />
+        )}
       </label>
-      {sets.map((set) => {
-        return (
-          <div>
-            <label>
-              Completed Reps:
-              <input
-                type="number"
-                name="completedReps"
-                value={set.completedReps}
-                onChange={(event) => handleChangeS(exercise.id, set.id, event)}
-              />
-            </label>
-            <label>
-              Amount:
-              <input
-                type="number"
-                name="amount"
-                value={set.amount}
-                onChange={(event) => handleChangeS(exercise.id, set.id, event)}
-              />
-            </label>
-            <button
-              type="button"
-              disabled={sets.length === 1}
-              onClick={() => handleRemoveSet(set.id)}
-            >
-              remove
-            </button>
-          </div>
-        )
-      })}
-      <button type="button" onClick={handleAddSet}>
-        add set
-      </button>
-      <button
-        type="button"
-        disabled={completedExercises.length === 1}
-        onClick={() => handleRemoveExercise(exercise.id)}
-      >
-        remove
-      </button>
+      <table>
+        <thead>
+          <tr className="single-set">
+            <th>SET</th>
+            <th>REPS</th>
+            <th>WEIGHT (KG)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sets.map((set, index) => {
+            return (
+              <tr key={index} className="single-set">
+                <td className="set-nu">{index + 1}</td>
+                <td>
+                  <label>
+                    <input
+                      type="number"
+                      name="completedReps"
+                      value={set.completedReps}
+                      onChange={(event) =>
+                        handleChangeS(exercise.id, set.id, event)
+                      }
+                    />
+                  </label>
+                </td>
+                <td>
+                  <label>
+                    <input
+                      type="number"
+                      name="amount"
+                      value={set.amount}
+                      onChange={(event) =>
+                        handleChangeS(exercise.id, set.id, event)
+                      }
+                    />
+                  </label>
+                </td>
+                {sets.length > 1 && (
+                  <td>
+                    <FaMinus
+                      className="icon"
+                      disabled={sets.length === 1}
+                      onClick={() => handleRemoveSet(set.id)}
+                    />
+                  </td>
+                )}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+      <div>
+        <FaPlus className="icon-1" onClick={handleAddSet} />
+      </div>
     </div>
   )
 }

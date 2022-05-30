@@ -15,41 +15,39 @@ const Workout = () => {
       setWorkouts(res.data)
     })
   }
-    const deleteWorkout = (id) => {
-      WorkoutService.deleteWorkout(id).then((res) => {
-        getWorkouts()
-      })
-    }
+  const deleteWorkout = (id) => {
+    WorkoutService.deleteWorkout(id).then((res) => {
+      getWorkouts()
+    })
+  }
 
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="workout main-container">
         {workouts.map(({ id, date, completedExercises }) => {
           return (
-            <div key={id}>
-              <div>Workout date: {date}</div>
-              <div>
-                {completedExercises.map(
-                  ({
-                    id,
-                    name,
-                    completedSets,
-                    completedReps,
-                    amount,
-                    unit,
-                  }) => {
-                    return (
-                      <div key={id}>
-                        <div>Exercise: {name}</div>
-                        <div>Completed sets: {completedSets}</div>
-                        <div>Completed reps: {completedReps}</div>
-                        <div>{amount}</div>
-                        <div>{unit}</div>
+            <div className="box" key={id}>
+              <h1 className="date">Workout date: {date}</h1>
+              <div className="items">
+                {completedExercises.map(({ id, name, sets }) => {
+                  return (
+                    <div key={id}>
+                      <div className="exer">Exercise: {name}</div>
+                      <div>
+                        {sets.map(({ id, completedReps, amount }, index) => {
+                          return (
+                            <div className="item-container" key={id}>
+                              <div className="items">
+                                {index+1}. Set -  {completedReps} x {amount}kg
+                              </div>
+                            </div>
+                          )
+                        })}
                       </div>
-                    )
-                  }
-                )}
+                    </div>
+                  )
+                })}
               </div>
               <button type="button" onClick={() => deleteWorkout(id)}>
                 Delete workout

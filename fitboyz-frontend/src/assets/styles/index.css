@@ -209,35 +209,29 @@ form button:hover {
   color: #ddd;
 }
 
-.add-plan {
-  margin: 24px auto;
-  max-width: 425px;
-  padding: 8px;
-  text-align: center;
-  font-size: 24px;
-  border: 0.5px solid var(--main-white);
-}
-
-.add-plan:hover {
-  background-color: #353535;
-  cursor: pointer;
-}
-
-.training-plan {
+.main-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(250px, 2fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  -ms-grid-columns: (minmax(425px, 2fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(425px, 2fr));
   gap: 50px;
   margin: 50px 100px;
 }
 
-.training-plan .icon {
+.main-container .icon {
   margin-left: 12px;
   cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.training-plan .box {
+.main-container .icon:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.main-container .box {
+  background-color: #191919;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,7 +246,7 @@ form button:hover {
   border: 1.5px solid white;
 }
 
-.training-plan .box .header {
+.main-container .box .header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -265,7 +259,7 @@ form button:hover {
           justify-content: space-between;
 }
 
-.training-plan .box .header .btns {
+.main-container .box .header .btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,7 +268,7 @@ form button:hover {
           align-items: center;
 }
 
-.training-plan .box .session-container {
+.main-container .box .item-container {
   font-size: 18px;
   padding: 2px 0;
   display: -webkit-box;
@@ -288,15 +282,20 @@ form button:hover {
           justify-content: space-between;
 }
 
-.training-plan .box p {
+.main-container .box .item-container .icon {
+  margin-left: 16px;
+  margin-right: 2px;
+}
+
+.main-container .box p {
   margin: 4px 0;
 }
 
-.training-plan .box .sessions {
+.main-container .box .items {
   margin: 12px 0;
 }
 
-.training-plan button {
+.main-container button {
   border: none;
   display: block;
   font-size: 16px;
@@ -312,8 +311,642 @@ form button:hover {
   border: 2px solid var(--main-white);
 }
 
-.training-plan button:hover {
+.main-container button:hover {
   background: var(--main-black);
   color: var(--main-white);
+}
+
+.add-plan {
+  margin: 24px auto;
+  max-width: 425px;
+  padding: 12px;
+  text-align: center;
+  font-size: 24px;
+  border: 2px solid var(--main-white);
+  background-color: var(--main-white);
+  color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-weight: 400;
+}
+
+.add-plan:hover {
+  background-color: var(--main-black);
+  color: var(--main-white);
+  cursor: pointer;
+}
+
+.plan .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 24px;
+  padding: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 36px;
+  border: 2px solid var(--main-white);
+  background-color: var(--main-white);
+  color: black;
+  font-weight: 400;
+}
+
+.plan .title .icon {
+  margin-left: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.plan .title .icon:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  cursor: pointer;
+}
+
+.plan .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+}
+
+.plan .main .main-info {
+  margin: 12px;
+  text-align: center;
+}
+
+.plan .main .main-info .icon {
+  color: black;
+}
+
+.plan .sessions {
+  margin: 25px 100px;
+}
+
+.plan .sessions .box .header {
+  font-size: 16px;
+}
+
+.plan .sessions .box .header .btns .icon {
+  font-size: 20px;
+  margin-left: 16px;
+}
+
+.plan .sessions .box .exercise-container div {
+  display: inline-block;
+}
+
+.plan .sessions .box .exercise-container div div {
+  width: 140px;
+}
+
+.plan .sessions .box .exercise-container .icon {
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.plan .sessions .box .exercise-container .icon:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.plan button {
+  border: none;
+  display: block;
+  font-size: 20px;
+  padding: 8px;
+  width: 256px;
+  background: var(--main-white);
+  text-align: center;
+  color: black;
+  -webkit-transition: linear 0.25s;
+  transition: linear 0.25s;
+  cursor: pointer;
+  margin: auto;
+  border: 2px solid var(--main-white);
+}
+
+.plan button:hover {
+  background: var(--main-black);
+  color: var(--main-white);
+}
+
+.workout {
+  -ms-grid-columns: (minmax(300px, 2fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+}
+
+.workout .date {
+  text-align: center;
+  font-size: 20px;
+}
+
+.workout .exer {
+  font-size: 20px;
+  margin: 8px 0 4px 0;
+}
+
+.workout .box .items {
+  padding: 0;
+  margin: 4px 0px 0px 4px;
+  font-size: 16px;
+}
+
+.workout button {
+  margin-top: 8px;
+}
+
+.new-workout {
+  min-height: calc(100vh - 50px);
+  background-color: #191919;
+  width: 748px;
+  margin: auto;
+  padding: 0 64px;
+  border-left: 1px solid var(--main-white);
+  border-right: 1px solid var(--main-white);
+}
+
+.new-workout .icon {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.new-workout .icon:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.new-workout .exercise {
+  margin-bottom: 16px;
+}
+
+.new-workout .exercise .icon {
+  margin-left: 24px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.new-workout label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-workout .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 32px;
+  padding: 24px;
+}
+
+.new-workout .add-workout,
+.new-workout .add-workout:active,
+.new-workout .add-workout:focus {
+  margin-left: 16px;
+  background: #191919;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid var(--main-white);
+  min-width: 200px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+.new-workout .add-workout:hover {
+  margin-left: 16px;
+  background: #191919;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid var(--main-white);
+  min-width: 200px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+.new-workout .add-workout:-webkit-autofill,
+.new-workout .add-workout:-webkit-autofill:hover,
+.new-workout .add-workout:-webkit-autofill:focus,
+.new-workout .add-workout:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 20px !important;
+  border-bottom: 2px solid var(--main-white);
+}
+
+.new-workout .single-set {
+  text-align: center;
+}
+
+.new-workout .single-set label {
+  margin: 0 28px;
+}
+
+.new-workout .single-set input {
+  background: #191919;
+  border-radius: 2.5px;
+  border: 1px solid;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 16px;
+  padding: 4px;
+  margin: 0;
+}
+
+.new-workout .single-set input:-webkit-autofill,
+.new-workout .single-set input:-webkit-autofill:hover,
+.new-workout .single-set input:-webkit-autofill:focus,
+.new-workout .single-set input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 16px !important;
+  border: 1px solid var(--main-white);
+}
+
+.new-workout .single-set input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.new-workout .single-set input[type="number"]::-webkit-inner-spin-button:hover {
+  -webkit-appearance: none;
+}
+
+.new-workout .single-set th {
+  font-size: 16px;
+}
+
+.new-workout .single-set table {
+  margin: 0 auto;
+}
+
+.new-workout .single-set .icon {
+  margin-top: 5px;
+  margin-left: 14px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.new-workout .icon-1 {
+  font-size: 24px;
+  float: right;
+  margin-right: 22px;
+  margin-top: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.new-workout .icon-1:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.new-workout button[type="submit"] {
+  margin-top: 8px;
+}
+
+.new-main-container {
+  min-height: calc(100vh - 50px);
+  background-color: #191919;
+  width: 600px;
+  margin: auto;
+  padding: 0 64px;
+  border-left: 1px solid var(--main-white);
+  border-right: 1px solid var(--main-white);
+}
+
+.new-main-container .title-name {
+  margin-bottom: 8px;
+}
+
+.new-main-container .icon {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.new-main-container .icon:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.new-main-container input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.new-main-container input[type="number"]::-webkit-inner-spin-button:hover {
+  -webkit-appearance: none;
+}
+
+.new-main-container .new-container {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--main-white);
+  margin-bottom: 16px;
+}
+
+.new-main-container .new-container .icon {
+  margin-left: 24px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.new-main-container .new-container .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.new-main-container .new-container .header .header-item {
+  margin: 20px 0 10px 0;
+  font-size: 20px;
+}
+
+.new-main-container .new-container .header .header-item input {
+  margin: 0;
+  margin-left: 8px;
+}
+
+.new-main-container .new-container select {
+  color: var(--main-white);
+  background: #191919;
+  border-radius: 2.5px;
+  border: 2px solid var(--main-white);
+  font-size: 16px;
+  padding: 2px 12px 2px 2px;
+  margin: 0;
+  margin-left: 8px;
+}
+
+.new-main-container label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-main-container .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 32px;
+  padding: 24px;
+}
+
+.new-main-container .add-main,
+.new-main-container .add-main:active,
+.new-main-container .add-main:focus,
+.new-main-container .add-main:hover {
+  margin-left: 16px;
+  background: #191919;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid var(--main-white);
+  min-width: 200px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+.new-main-container .add-main:-webkit-autofill,
+.new-main-container .add-main:-webkit-autofill:hover,
+.new-main-container .add-main:-webkit-autofill:focus,
+.new-main-container .add-main:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 20px !important;
+  border-bottom: 2px solid var(--main-white);
+}
+
+.new-main-container .small {
+  font-size: 16px;
+  margin: 6px auto;
+}
+
+.new-main-container .add-main-small,
+.new-main-container .add-main-small:active,
+.new-main-container .add-main-small:focus,
+.new-main-container .add-main-small:hover {
+  background: #191919;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0;
+  margin-left: 8px;
+  width: 50px;
+}
+
+.new-main-container .add-main-small:-webkit-autofill,
+.new-main-container .add-main-small:-webkit-autofill:hover,
+.new-main-container .add-main-small:-webkit-autofill:focus,
+.new-main-container .add-main-small:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 16px !important;
+  border-bottom: 1px solid var(--main-white);
+}
+
+.new-main-container table .exer-input,
+.new-main-container table .exer-input:active,
+.new-main-container table .exer-input:hover,
+.new-main-container table .exer-input:focus {
+  background: #191919;
+  border-radius: 2.5px;
+  border: 1px solid;
+  font-size: 16px;
+  padding: 4px;
+  margin: 8px 8px 0 8px;
+}
+
+.new-main-container table .exer-input:-webkit-autofill,
+.new-main-container table .exer-input:-webkit-autofill:hover,
+.new-main-container table .exer-input:-webkit-autofill:focus,
+.new-main-container table .exer-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 16px !important;
+  border: 1px solid var(--main-white);
+}
+
+.new-main-container table label {
+  margin: 0;
+}
+
+.new-main-container table .exer-input[type="number"] {
+  width: 64px;
+}
+
+.new-main-container table th {
+  font-size: 16px;
+}
+
+.new-main-container table .icon {
+  margin-top: 10px;
+  margin-left: 14px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.new-main-container .icon-1 {
+  font-size: 24px;
+  float: right;
+  margin-right: 32px;
+  margin-top: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.new-main-container .icon-1:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.new-main-container button[type="submit"] {
+  margin-top: 8px;
+}
+
+.new-progress {
+  min-height: calc(100vh - 50px);
+  background-color: #191919;
+  width: 450px;
+  margin: auto;
+  padding: 0 64px;
+  border-left: 1px solid var(--main-white);
+  border-right: 1px solid var(--main-white);
+}
+
+.new-progress .title-name {
+  margin-bottom: 8px;
+}
+
+.new-progress input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.new-progress input[type="number"]::-webkit-inner-spin-button:hover {
+  -webkit-appearance: none;
+}
+
+.new-progress label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.new-progress .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 32px;
+  padding: 24px;
+}
+
+.new-progress .progress-input,
+.new-progress .progress-input:active,
+.new-progress .progress-input:focus,
+.new-progress .progress-input:hover {
+  margin-left: 16px;
+  background: #191919;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid var(--main-white);
+  width: 225px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+.new-progress .progress-input:-webkit-autofill,
+.new-progress .progress-input:-webkit-autofill:hover,
+.new-progress .progress-input:-webkit-autofill:focus,
+.new-progress .progress-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 20px !important;
+  border-bottom: 2px solid var(--main-white);
+}
+
+.new-progress .progress-input-num,
+.new-progress .progress-input-num:active,
+.new-progress .progress-input-num:hover,
+.new-progress .progress-input-num:focus {
+  background: #191919;
+  border-radius: 2.5px;
+  border: 1px solid;
+  font-size: 16px;
+  min-width: 225px;
+  padding: 4px;
+  margin: 8px 8px 0 8px;
+}
+
+.new-progress .progress-input-num:-webkit-autofill,
+.new-progress .progress-input-num:-webkit-autofill:hover,
+.new-progress .eprogress-input-num:-webkit-autofill:focus,
+.new-progress .progress-input-num:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 16px !important;
+  border: 1px solid var(--main-white);
+}
+
+.new-progress label {
+  margin: 0;
+  margin-top: 8px;
+}
+
+.new-progress .progress-input-num[type="number"] {
+  width: 64px;
+}
+
+.new-progress button[type="submit"] {
+  margin-top: 16px;
 }
 /*# sourceMappingURL=index.css.map */

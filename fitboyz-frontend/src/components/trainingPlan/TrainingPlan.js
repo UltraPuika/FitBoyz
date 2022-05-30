@@ -42,7 +42,7 @@ const TrainingPlan = () => {
       >
         ADD NEW TRAINING PLAN
       </div>
-      <div className="training-plan">
+      <div className="main-container training-plan">
         {trainingPlans.map(
           ({
             id,
@@ -84,11 +84,14 @@ const TrainingPlan = () => {
                 <p>
                   Sessions per week: <strong>{numberOfSessions}</strong>{" "}
                 </p>
-                <div className="sessions">
+                <div className="items sessions">
                   <h3>Sessions:</h3>
                   {sessions.map(({ id, sessionTitle, intensity }) => {
                     return (
-                      <div className="session-container" key={id}>
+                      <div
+                        className="item-container session-container"
+                        key={id}
+                      >
                         <div className="session-text">
                           <p>
                             <strong>{sessionTitle}</strong> ({intensity}{" "}

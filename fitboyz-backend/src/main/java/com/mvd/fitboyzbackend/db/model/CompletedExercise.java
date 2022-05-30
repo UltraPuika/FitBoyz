@@ -18,7 +18,7 @@ public class CompletedExercise {
     private String name;
     @OneToMany(targetEntity = CompletedSet.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "completed_exercise_id", referencedColumnName = "id")
-    List<CompletedSet> sets;
+    private List<CompletedSet> sets;
     @ManyToOne
     private CompletedSession completedSession;
 }

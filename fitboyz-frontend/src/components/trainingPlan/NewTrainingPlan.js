@@ -94,26 +94,38 @@ const NewTrainingPlan = () => {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="new-main-container">
+        <h1 className="title">New Training Plan</h1>
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className="title-name">
             Title:
             <input
+              className="add-main"
               type="text"
               name="title"
               value={title}
               onChange={handleChange}
             />
           </label>
-          <label>
-            Plan Length:
+          <label className="small">
+            Plan Length in weeks:
             <input
+              className="add-main-small"
               type="number"
               name="planLength"
               value={planLength}
               onChange={handleChange}
             />
-            weeks
+          </label>
+          <label className="small">
+            Number of sessions per week:
+            <input
+              className="add-main-small"
+              type="number"
+              name="numberOfSessions"
+              value={numberOfSessions}
+              onChange={handleChange}
+            />
           </label>
           {sessions.map((session) => (
             <NewSession
@@ -127,18 +139,11 @@ const NewTrainingPlan = () => {
             />
           ))}
           <button type="button" onClick={handleAddSession}>
-            add sess
+            Add session
           </button>
-          <label>
-            Number of sessions per week:
-            <input
-              type="number"
-              name="numberOfSessions"
-              value={numberOfSessions}
-              onChange={handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
+          <button type="submit">
+            Save Plan
+          </button>
         </form>
       </div>
     </div>

@@ -34,11 +34,13 @@ const NewProgress = () => {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="new-progress">
+        <h1 className="title">New Progress</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Name:
+            Exercise:
             <input
+              className="progress-input"
               type="text"
               name="name"
               value={name}
@@ -46,8 +48,19 @@ const NewProgress = () => {
             />
           </label>
           <label>
+            Date:
+            <input
+              className="progress-input-num da"
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
             Reps:
             <input
+              className="progress-input-num re"
               type="number"
               name="reps"
               value={reps}
@@ -55,33 +68,16 @@ const NewProgress = () => {
             />
           </label>
           <label>
-            Amount:
+            Weight:
             <input
+              className="progress-input-num am"
               type="number"
               name="amount"
               value={amount}
               onChange={handleChange}
             />
           </label>
-          <label>
-            Unit:
-            <input
-              type="text"
-              name="unit"
-              value={unit}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Date:
-            <input
-              type="date"
-              name="date"
-              value={date}
-              onChange={handleChange}
-            />
-          </label>
-          <input type="submit" value="Submit" />
+          <button type="submit">Save Progress</button>
         </form>
       </div>
     </div>

@@ -6,29 +6,24 @@ import TrainingPlanService from "../../services/TrainingPlanService"
 import Navbar from "../Navbar"
 import NewExercise from "./NewExercise"
 
+const year = new Date().getFullYear()
+const month = new Date().getMonth() + 1
+const day = new Date().getDate()
+const monthString = month < 10 ? "0" + month : month
+const currentDate = year + "-" + monthString + "-" + day
+
 const NewWorkout = () => {
   const [workout, setWorkout] = useState({})
-  const [date, setDate] = useState("")
+  const [date, setDate] = useState(currentDate)
 
-  const [completedExercises, setCompletedExercises] = useState([
-  ])
+  const [completedExercises, setCompletedExercises] = useState([])
 
   const [sessionName, setSessionName] = useState()
   const { sessionId } = useParams()
 
   useEffect(() => {
-    setToday()
     getSession(sessionId)
   }, [])
-
-  const setToday = () => {
-    const year = new Date().getFullYear()
-    const month = new Date().getMonth() + 1
-    const day = new Date().getDate()
-    const monthString = month < 10 ? "0" + month : month
-    const currentDate = year + "-" + monthString + "-" + day
-    setDate(currentDate)
-  }
 
   const getSession = (id) => {
     TrainingPlanService.getSession(id).then((res) => {
@@ -109,19 +104,20 @@ const NewWorkout = () => {
     })
 
     WorkoutService.createWorkout(sessionId, workout).then((res) => {
-      console.log(res)
+      window.location.href = "/"
     })
   }
 
   return (
     <div>
       <Navbar />
-      <div>
-        <h1>{sessionName} workout</h1>
+      <div className="new-workout">
+        <h1 className="title">{sessionName} workout</h1>
         <form onSubmit={handleSubmit}>
           <label>
             Date:
             <input
+              className="add-workout"
               type="date"
               name="date"
               value={date}
@@ -141,9 +137,9 @@ const NewWorkout = () => {
             />
           ))}
           <button type="button" onClick={handleAddExercise}>
-            add
+            Add exercise
           </button>
-          <input type="submit" value="Submit" />
+          <button type="submit">Save Workout</button>
         </form>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
+import { FaPlus, FaMinus } from "react-icons/fa"
 
 const NewSession = ({
   session,
@@ -62,17 +63,24 @@ const NewSession = ({
   }
 
   return (
-    <div key={session.id}>
-      <label>
-        Session Title:
-        <input
-          type="text"
-          name="sessionTitle"
-          value={session.sessionTitle}
-          onChange={(event) => handleChangeS(session.id, event)}
-        />
-      </label>
-      <label>
+    <div className="new-container" key={session.id}>
+        <label className="header-item">
+          Session Title:
+          <input
+            className="add-main"
+            type="text"
+            name="sessionTitle"
+            value={session.sessionTitle}
+            onChange={(event) => handleChangeS(session.id, event)}
+          />
+          {sessions.length > 1 && (
+            <FaMinus
+              className="icon header-item"
+              onClick={() => handleRemoveSession(session.id)}
+            />
+          )}
+        </label>
+      <label className="header-item">
         Intensity:
         <select
           name="intensity"
@@ -80,66 +88,76 @@ const NewSession = ({
           value={session.intensity}
         >
           <option value="">Not specified</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
       </label>
-      {sessionExercises.map((exercise) => (
-        <div key={exercise.id}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={exercise.name}
-              onChange={(event) =>
-                handleChangeE(session.id, exercise.id, event)
-              }
-            />
-          </label>
-          <label>
-            Sets:
-            <input
-              type="number"
-              name="sets"
-              value={exercise.sets}
-              onChange={(event) =>
-                handleChangeE(session.id, exercise.id, event)
-              }
-            />
-          </label>
-          <label>
-            Reps:
-            <input
-              type="number"
-              name="reps"
-              value={exercise.reps}
-              onChange={(event) =>
-                handleChangeE(session.id, exercise.id, event)
-              }
-            />
-          </label>
-          <button
-            type="button"
-            disabled={sessionExercises.length === 1}
-            onClick={() => handleRemoveExercise(exercise.id)}
-          >
-            remove exer
-          </button>
-        </div>
-      ))}
-      <button type="button" onClick={handleAddExercise}>
-        add exer
-      </button>
-      <button
-        type="button"
-        disabled={sessions.length === 1}
-        onClick={() => handleRemoveSession(session.id)}
-      >
-        remove sess
-      </button>
-      
+      <table>
+        <thead>
+          <tr className="container">
+            <th>EXERCISE</th>
+            <th>SETS</th>
+            <th>REPS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sessionExercises.map((exercise) => (
+            <tr key={exercise.id} className="container">
+              <td>
+                <label>
+                  <input
+                    className="exer-input"
+                    type="text"
+                    name="name"
+                    value={exercise.name}
+                    onChange={(event) =>
+                      handleChangeE(session.id, exercise.id, event)
+                    }
+                  />
+                </label>
+              </td>
+              <td>
+                <label>
+                  <input
+                    className="exer-input"
+                    type="number"
+                    name="sets"
+                    value={exercise.sets}
+                    onChange={(event) =>
+                      handleChangeE(session.id, exercise.id, event)
+                    }
+                  />
+                </label>
+              </td>
+              <td>
+                <label>
+                  <input
+                    className="exer-input"
+                    type="number"
+                    name="reps"
+                    value={exercise.reps}
+                    onChange={(event) =>
+                      handleChangeE(session.id, exercise.id, event)
+                    }
+                  />
+                </label>
+              </td>
+              {sessionExercises.length > 1 && (
+                <td>
+                  <FaMinus
+                    className="icon"
+                    onClick={() => handleRemoveExercise(exercise.id)}
+                  />
+                </td>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div>
+        <FaPlus className="icon-1" onClick={handleAddExercise} />
+      </div>
     </div>
   )
 }
