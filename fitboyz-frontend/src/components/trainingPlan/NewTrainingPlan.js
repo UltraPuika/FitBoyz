@@ -64,6 +64,12 @@ const NewTrainingPlan = () => {
     } else if (event.target.name === "numberOfSessions") {
       setNumberOfSessions(event.target.value)
     }
+    setTrainingPlan({
+      title,
+      planLength,
+      sessions,
+      numberOfSessions,
+    })
   }
 
   const handleSubmit = (e) => {
@@ -111,18 +117,18 @@ const NewTrainingPlan = () => {
           </label>
           {sessions.map((session) => (
             <NewSession
-              key={session.id}
               session={session}
               handleChangeS={handleChangeS}
               handleRemoveSession={handleRemoveSession}
-              handleAddSession={handleAddSession}
               setSessions={setSessions}
               setTrainingPlan={setTrainingPlan}
               sessions={sessions}
               trainingPlan={trainingPlan}
             />
           ))}
-
+          <button type="button" onClick={handleAddSession}>
+            add sess
+          </button>
           <label>
             Number of sessions per week:
             <input

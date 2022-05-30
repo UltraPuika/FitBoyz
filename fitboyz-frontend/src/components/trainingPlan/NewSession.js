@@ -5,7 +5,6 @@ const NewSession = ({
   session,
   handleChangeS,
   handleRemoveSession,
-  handleAddSession,
   setSessions,
   setTrainingPlan,
   sessions,
@@ -63,7 +62,7 @@ const NewSession = ({
   }
 
   return (
-    <div>
+    <div key={session.id}>
       <label>
         Session Title:
         <input
@@ -128,11 +127,11 @@ const NewSession = ({
           >
             remove exer
           </button>
-          <button type="button" onClick={handleAddExercise}>
-            add exer
-          </button>
         </div>
       ))}
+      <button type="button" onClick={handleAddExercise}>
+        add exer
+      </button>
       <button
         type="button"
         disabled={sessions.length === 1}
@@ -140,9 +139,7 @@ const NewSession = ({
       >
         remove sess
       </button>
-      <button type="button" onClick={handleAddSession}>
-        add sess
-      </button>
+      
     </div>
   )
 }

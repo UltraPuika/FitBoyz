@@ -8,4 +8,5 @@ public class SessionExerciseDto {
     private String name;
     private Integer sets;
     private Integer reps;
+    private String type;
 }

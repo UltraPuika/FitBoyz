@@ -28,7 +28,7 @@ const Workout = () => {
         {workouts.map(({ id, date, completedExercises }) => {
           return (
             <div key={id}>
-              <div>{date}</div>
+              <div>Workout date: {date}</div>
               <div>
                 {completedExercises.map(
                   ({
@@ -41,9 +41,9 @@ const Workout = () => {
                   }) => {
                     return (
                       <div key={id}>
-                        <div>{name}</div>
-                        <div>{completedSets}</div>
-                        <div>{completedReps}</div>
+                        <div>Exercise: {name}</div>
+                        <div>Completed sets: {completedSets}</div>
+                        <div>Completed reps: {completedReps}</div>
                         <div>{amount}</div>
                         <div>{unit}</div>
                       </div>

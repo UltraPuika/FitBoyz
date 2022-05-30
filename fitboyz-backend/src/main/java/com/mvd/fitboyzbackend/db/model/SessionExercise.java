@@ -17,6 +17,7 @@ public class SessionExercise {
     private String name;
     private Integer sets;
     private Integer reps;
+    private String type;
     @ManyToOne
     private Session session;
 }

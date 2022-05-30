@@ -2,12 +2,11 @@ package com.mvd.fitboyzbackend.web.dto;
 
 import lombok.Data;
 
+import java.util.*;
+
 @Data
 public class CompletedExerciseDto {
     private Long id;
     private String name;
-    private Integer completedSets;
-    private Integer completedReps;
-    private Integer amount;
-    private String unit;
+    private List<CompletedSetDto> sets;
 }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Getter
@@ -15,10 +16,9 @@ public class CompletedExercise {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Integer completedSets;
-    private Integer completedReps;
-    private Integer amount;
-    private String unit;
+    @OneToMany(targetEntity = CompletedSet.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "completed_exercise_id", referencedColumnName = "id")
+    List<CompletedSet> sets;
     @ManyToOne
     private CompletedSession completedSession;
 }
