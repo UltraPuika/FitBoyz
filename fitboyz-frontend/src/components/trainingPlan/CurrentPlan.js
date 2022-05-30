@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import TrainingPlanService from "../../services/TrainingPlanService"
 import Navbar from "../Navbar"
-import { FaPlay, FaTrash, FaStar, FaRegStar } from "react-icons/fa"
+import { FaPlay, FaTrash } from "react-icons/fa"
 
 const CurrentPlan = () => {
   const [trainingPlan, setTrainingPlan] = useState({
