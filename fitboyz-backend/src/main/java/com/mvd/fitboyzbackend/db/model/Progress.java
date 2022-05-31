@@ -18,7 +18,6 @@ public class Progress {
     private String name;
     private Integer reps;
     private Integer amount;
-    private String unit;
     private LocalDate date;
     @ManyToOne
     private User user;

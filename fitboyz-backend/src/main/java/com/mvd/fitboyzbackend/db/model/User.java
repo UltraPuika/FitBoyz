@@ -23,6 +23,4 @@ public class User {
     private List<TrainingPlan> trainingPlans;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Progress> progresses;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Exercise> exercises;
 }

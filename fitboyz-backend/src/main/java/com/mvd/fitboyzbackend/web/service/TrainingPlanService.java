@@ -19,7 +19,6 @@ public class TrainingPlanService {
     private final SessionDbClient sessionDbClient;
     private final SessionManipulator sessionManipulator;
     private final UserDbClient userDbClient;
-    private final ExerciseDbClient exerciseDbClient;
     private final SessionExerciseDbClient sessionExerciseDbClient;
 
     public TrainingPlanDto createTrainingPlan(TrainingPlanDto trainingPlanDto, Long userId) {
@@ -28,13 +27,6 @@ public class TrainingPlanService {
         trainingPlan.setUser(user);
         trainingPlan.setDate(LocalDate.now());
         trainingPlan.setIsCurrent(false);
-        for (Session session : trainingPlan.getSessions()) {
-            for (SessionExercise exercise : session.getSessionExercises()) {
-                if (exerciseDbClient.getExercise(exercise.getName()) == null) {
-                    exerciseDbClient.saveRecord(new Exercise(exercise.getName(), user));
-                }
-            }
-        }
 
         return trainingPlanManipulator.convertTrainingPlanToDto(trainingPlanDbClient.saveRecord(trainingPlan));
     }
@@ -58,16 +50,16 @@ public class TrainingPlanService {
         trainingPlanDbClient.updateCurrent(id);
     }
 
-    public long deleteTrainingPlan(Long id) {
-        return trainingPlanDbClient.deleteEntity(id);
+    public void deleteTrainingPlan(Long id) {
+        trainingPlanDbClient.deleteEntity(id);
     }
 
-    public long deleteSession(Long id) {
-        return sessionDbClient.deleteEntity(id);
+    public void deleteSession(Long id) {
+        sessionDbClient.deleteEntity(id);
     }
 
-    public long deleteExercise(Long id) {
-        return sessionExerciseDbClient.deleteEntity(id);
+    public void deleteExercise(Long id) {
+        sessionExerciseDbClient.deleteEntity(id);
     }
 
     public SessionDto getSession(Long sessionId) {

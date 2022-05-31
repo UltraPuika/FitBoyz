@@ -15,6 +15,8 @@ public class CompletedSessionService {
     private final CompletedSessionDbClient completedSessionDbClient;
     private final CompletedSessionManipulator completedSessionManipulator;
     private final SessionDbClient sessionDbClient;
+    private final ProgressDbClient progressDbClient;
+    private final ProgressManipulator progressManipulator;
 
     public CompletedSessionDto createCompletedSession(CompletedSessionDto completedSessionDto, Long sessionId) {
         CompletedSession completedSession = completedSessionManipulator.convertDtoToCompletedSession(completedSessionDto);
@@ -23,13 +25,26 @@ public class CompletedSessionService {
 
         completedSession = completedSessionDbClient.saveRecord(completedSession);
 
+
+        for (CompletedExercise completedExercise: completedSession.getCompletedExercises()) {
+            for (CompletedSet completedSet: completedExercise.getSets()) {
+                Progress progress = new Progress();
+                progress.setUser(completedSession.getSession().getTrainingPlan().getUser());
+                progress.setDate(completedSession.getDate());
+                progress.setName(completedExercise.getName());
+                progress.setAmount(completedSet.getAmount());
+                progress.setReps(completedSet.getCompletedReps());
+                progressDbClient.saveRecord(progress);
+            }
+        }
+
         return completedSessionManipulator.convertCompletedSessionToDto(completedSession);
     }
     public List<CompletedSessionDto> getCompletedSessions(Long userId) {
         List<CompletedSession> completedSessions = completedSessionDbClient.getCompletedSessions(userId);
         return completedSessionManipulator.convertCompletedSessionsToDtos(completedSessions);
     }
-    public long deleteCompletedSession(Long id) {
-        return completedSessionDbClient.deleteEntity(id);
+    public void deleteCompletedSession(Long id) {
+        completedSessionDbClient.deleteEntity(id);
     }
 }

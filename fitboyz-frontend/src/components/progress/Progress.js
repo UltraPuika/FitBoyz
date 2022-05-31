@@ -113,12 +113,6 @@ const Progress = () => {
     <div className="progress">
       <Navbar />
       <div className="content">
-        <button
-          className="add-progress"
-          onClick={() => (window.location.href = "/new-progress")}
-        >
-          Add Progress
-        </button>
         <div className="form-wrap">
           <form onSubmit={handleSubmit}>
             <h2>Select Data</h2>
@@ -169,6 +163,12 @@ const Progress = () => {
         <div className="data">
           {data !== undefined && <Line options={options} data={data} />}
         </div>
+        <button
+          className="add-progress"
+          onClick={() => (window.location.href = "/new-progress")}
+        >
+          Add Progress
+        </button>
       </div>
     </div>
   )
