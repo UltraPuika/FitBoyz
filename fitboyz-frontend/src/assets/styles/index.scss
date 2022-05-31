@@ -723,7 +723,7 @@ form {
   }
   .progress-input-num:-webkit-autofill,
   .progress-input-num:-webkit-autofill:hover,
-  .eprogress-input-num:-webkit-autofill:focus,
+  .progress-input-num:-webkit-autofill:focus,
   .progress-input-num:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
     -webkit-text-fill-color: #191919 !important;
@@ -740,5 +740,85 @@ form {
 
   button[type="submit"] {
     margin-top: 16px;
+  }
+}
+.progress {
+  .content {
+    display: flex;
+    flex-direction: column;
+    .form-wrap {
+      text-align: center;
+      background-color: #191919;
+      padding: 16px;
+      border-top: 1px solid var(--main-white);
+      border-bottom: 1px solid var(--main-white);
+    }
+    .form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+margin: 12px 0;
+      .input-progress,
+      .input-progress:active,
+      .input-progress:hover,
+      .input-progress:focus {
+        text-align: center;
+        background: #191919;
+        border-radius: 2.5px;
+        border: 1px solid var(--main-white);
+        font-size: 16px;
+        min-width: 225px;
+        padding: 4px;
+        margin: 8px 8px 0 8px;
+        color: var(--main-white);
+      }
+      .input-progress:-webkit-autofill,
+      .input-progress:-webkit-autofill:hover,
+      .input-progress:-webkit-autofill:focus,
+      .input-progress:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+        -webkit-text-fill-color: #191919 !important;
+        font-size: 16px !important;
+        border: 1px solid var(--main-white);
+      }
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      input[type="number"]::-webkit-inner-spin-button:hover {
+        -webkit-appearance: none;
+      }
+    }
+  }
+    label {
+      margin: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .add-progress {
+    margin: 24px auto;
+    max-width: 425px;
+    padding: 8px 36px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid var(--main-white);
+    background-color: var(--main-white);
+    color: black;
+    transition: 0.5s;
+    font-weight: 400;
+  }
+  .add-progress:hover {
+    background-color: var(--main-black);
+    color: var(--main-white);
+    cursor: pointer;
+  }
+  button{
+    border-radius: 0;
+    margin: 12px auto;
+  }
+  .data{
+    margin: 12px 48px;
   }
 }

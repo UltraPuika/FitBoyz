@@ -929,7 +929,7 @@ form button:hover {
 
 .new-progress .progress-input-num:-webkit-autofill,
 .new-progress .progress-input-num:-webkit-autofill:hover,
-.new-progress .eprogress-input-num:-webkit-autofill:focus,
+.new-progress .progress-input-num:-webkit-autofill:focus,
 .new-progress .progress-input-num:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
   -webkit-text-fill-color: #191919 !important;
@@ -948,5 +948,115 @@ form button:hover {
 
 .new-progress button[type="submit"] {
   margin-top: 16px;
+}
+
+.progress .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.progress .content .form-wrap {
+  text-align: center;
+  background-color: #191919;
+  padding: 16px;
+  border-top: 1px solid var(--main-white);
+  border-bottom: 1px solid var(--main-white);
+}
+
+.progress .content .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 12px 0;
+}
+
+.progress .content .form .input-progress,
+.progress .content .form .input-progress:active,
+.progress .content .form .input-progress:hover,
+.progress .content .form .input-progress:focus {
+  text-align: center;
+  background: #191919;
+  border-radius: 2.5px;
+  border: 1px solid var(--main-white);
+  font-size: 16px;
+  min-width: 225px;
+  padding: 4px;
+  margin: 8px 8px 0 8px;
+  color: var(--main-white);
+}
+
+.progress .content .form .input-progress:-webkit-autofill,
+.progress .content .form .input-progress:-webkit-autofill:hover,
+.progress .content .form .input-progress:-webkit-autofill:focus,
+.progress .content .form .input-progress:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #191919 inset !important;
+  -webkit-text-fill-color: #191919 !important;
+  font-size: 16px !important;
+  border: 1px solid var(--main-white);
+}
+
+.progress .content .form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.progress .content .form input[type="number"]::-webkit-inner-spin-button:hover {
+  -webkit-appearance: none;
+}
+
+.progress label {
+  margin: 0 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.progress .add-progress {
+  margin: 24px auto;
+  max-width: 425px;
+  padding: 8px 36px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid var(--main-white);
+  background-color: var(--main-white);
+  color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-weight: 400;
+}
+
+.progress .add-progress:hover {
+  background-color: var(--main-black);
+  color: var(--main-white);
+  cursor: pointer;
+}
+
+.progress button {
+  border-radius: 0;
+  margin: 12px auto;
+}
+
+.progress .data {
+  margin: 12px 48px;
 }
 /*# sourceMappingURL=index.css.map */

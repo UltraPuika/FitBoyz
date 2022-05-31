@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import ProgressService from "../../services/ProgressService"
 import Navbar from "../Navbar"
+import { FaSearch } from "react-icons/fa"
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -42,7 +44,7 @@ const Progress = () => {
   const [count, setCount] = useState("")
 
   const handleChange = (event) => {
-    if (event.target.list.id === "exercises") {
+    if (event.target.name === "name") {
       setName(event.target.value)
     } else if (event.target.name === "repsweight") {
       setRepsweight(event.target.value)
@@ -108,51 +110,65 @@ const Progress = () => {
   }
 
   return (
-    <div>
+    <div className="progress">
       <Navbar />
-      <div>
-        <button onClick={() => (window.location.href = "/new-progress")}>
-          Add progress
+      <div className="content">
+        <button
+          className="add-progress"
+          onClick={() => (window.location.href = "/new-progress")}
+        >
+          Add Progress
         </button>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Exercise:
-            <input
-              type="text"
-              list="exercises"
-              onChange={handleChange}
-              value={name}
-            />
-            <datalist id="exercises">
-              {exercises.map((exercise) => {
-                return <option value={exercise}>{exercise}</option>
-              })}
-            </datalist>
-          </label>
-          <label>
-            reps weight
-            <select
-              name="repsweight"
-              onChange={handleChange}
-              value={repsweight}
-            >
-              <option value="reps">reps</option>
-              <option value="kg">weight</option>
-            </select>
-          </label>
-          <label>
-            Amount:
-            <input
-              type="number"
-              name="amount"
-              value={count}
-              onChange={handleChange}
-            />
-          </label>
-          <button type="submit">Save Progress</button>
-        </form>
+        <div className="form-wrap">
+          <form onSubmit={handleSubmit}>
+            <h2>Select Data</h2>
+            <div className="form">
+              <label>
+                Exercise:
+                <select
+                  className="input-progress"
+                  name="name"
+                  onChange={handleChange}
+                  value={name}
+                >
+                  <option value="" selected disabled hidden></option>
+                  {exercises.map((exercise) => {
+                    return <option value={exercise}>{exercise}</option>
+                  })}
+                </select>
+              </label>
+              <label>
+                View progress for:
+                <select
+                  className="input-progress"
+                  name="repsweight"
+                  onChange={handleChange}
+                  value={repsweight}
+                >
+                  <option value="KG">Reps</option>
+                  <option value="reps">Weight</option>
+                </select>
+              </label>
+              <label>
+                {repsweight === "KG" ? "With Weight (KG)" : "With Reps:"}
+                <input
+                  className="input-progress"
+                  type="number"
+                  name="amount"
+                  value={count}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
 
-        {data !== undefined && <Line options={options} data={data} />}
+            <button type="submit">
+              <FaSearch />
+            </button>
+          </form>
+        </div>
+        <div className="data">
+          {data !== undefined && <Line options={options} data={data} />}
+        </div>
       </div>
     </div>
   )
