@@ -6,7 +6,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface ProgressDbRepository extends PagingAndSortingRepository<Progress, Long> {
-    List<Progress> findByUser_IdEquals(Long id);
+//    List<Progress> findByUser_IdEquals(Long id);
+
+    List<Progress> findByNameEqualsAndUser_IdEquals(String name, Long id);
 
 
 }

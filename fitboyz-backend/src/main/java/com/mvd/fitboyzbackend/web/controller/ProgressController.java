@@ -23,8 +23,8 @@ public class ProgressController {
         return new ResponseEntity<>(progress, HttpStatus.OK);
     }
     @GetMapping()
-    public ResponseEntity<List<ProgressDto>> getProgress(@RequestParam Long userId) {
-        List<ProgressDto> progresses = progressService.getProgress(userId);
+    public ResponseEntity<List<ProgressDto>> getProgress(@RequestParam Long userId, @RequestParam String name) {
+        List<ProgressDto> progresses = progressService.getProgress(name, userId);
         return new ResponseEntity<>(progresses, HttpStatus.OK);
     }
     @GetMapping("/exercises")

@@ -27,8 +27,8 @@ public class ProgressService {
         return progressManipulator.convertProgressToDto(progress);
     }
 
-    public List<ProgressDto> getProgress(Long userId) {
-        List<Progress> progresses = progressDbClient.getProgresses(userId);
+    public List<ProgressDto> getProgress(String name, Long userId) {
+        List<Progress> progresses = progressDbClient.getProgresses(name, userId);
         return progressManipulator.convertProgressesToDtos(progresses);
     }
 
