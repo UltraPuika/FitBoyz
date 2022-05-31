@@ -16,6 +16,6 @@ public class ProgressDbClient {
         return progressDbRepository.save(progress);
     }
     public List<Progress> getProgresses(String name, Long id){
-        return progressDbRepository.findByNameEqualsAndUser_IdEquals(name, id);
+        return progressDbRepository.findByNameEqualsAndUser_IdEqualsOrderByDateAsc(name, id);
     }
 }
