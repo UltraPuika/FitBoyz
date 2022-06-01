@@ -1,8 +1,0 @@
-{
-    "name": "fitboyz-backend",
-    "buildpacks": [
-        {
-            "url": "heroku/maven"
-        }
-    ]
-}
