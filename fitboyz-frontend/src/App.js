@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom"
 import Home from "./components/Home"
 import TrainingPlan from "./components/trainingPlan/TrainingPlan"
 import NewTrainingPlan from "./components/trainingPlan/NewTrainingPlan"
@@ -16,20 +16,20 @@ function App() {
   if (sessionStorage.getItem("token") === null) {
     return (
       <div>
-        <Router>
+        <HashRouter>
           <div className="container">
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
             </Routes>
           </div>
-        </Router>
+        </HashRouter>
       </div>
     )
   }
   return (
     <div>
-      <Router>
+      <HashRouter>
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -43,7 +43,7 @@ function App() {
             <Route path="/new-progress" element={<NewProgress />} />
           </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </div>
   )
 }

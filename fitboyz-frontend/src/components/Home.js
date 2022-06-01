@@ -13,22 +13,22 @@ const Home = () => {
         <img src={Logo} alt="logo" />
       </div>
       <div
-        onClick={() => (window.location.href = "/training-plan")}
+        onClick={() => (window.location.href = "/#/training-plan")}
         className="item"
       >
         Training plans
       </div>
-      <div onClick={() => (window.location.href = "/workout")} className="item">
+      <div onClick={() => (window.location.href = "/#/workout")} className="item">
         Previous workouts
       </div>
       <div
-        onClick={() => (window.location.href = "/current-plan")}
+        onClick={() => (window.location.href = "/#/current-plan")}
         className="item"
       >
         Current plan
       </div>
       <div
-        onClick={() => (window.location.href = "/progress")}
+        onClick={() => (window.location.href = "/#/progress")}
         className="item"
       >
         Progress

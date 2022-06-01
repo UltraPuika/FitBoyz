@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const TRAINING_PLAN_API_BASE_URL = "http://localhost:8080/training-plan"
+const TRAINING_PLAN_API_BASE_URL = "/api/training-plan"
 
 const USER_PARAM = "?userId="
 

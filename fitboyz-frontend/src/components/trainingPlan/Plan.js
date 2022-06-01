@@ -26,7 +26,7 @@ const Plan = () => {
   }
   const deletePlan = (id) => {
     TrainingPlanService.deletePlan(id).then((res) => {
-      window.location.href = "/training-plan"
+      window.location.href = "/#/training-plan"
     })
   }
   const setCurrentPlan = (id) => {
@@ -87,7 +87,7 @@ const Plan = () => {
                       <FaPlay
                         className="icon"
                         onClick={() =>
-                          (window.location.href = "/new-workout/" + id)
+                          (window.location.href = "/#/new-workout/" + id)
                         }
                       />
                       {trainingPlan.sessions.length > 1 && <FaTrash

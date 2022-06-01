@@ -58,7 +58,7 @@ const CurrentPlan = () => {
                       <FaPlay
                         className="icon"
                         onClick={() =>
-                          (window.location.href = "/new-workout/" + id)
+                          (window.location.href = "/#/new-workout/" + id)
                         }
                         />
                       <FaTrash

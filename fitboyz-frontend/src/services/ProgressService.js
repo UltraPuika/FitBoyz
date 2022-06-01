@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const PROGRESS_API_BASE_URL = "http://localhost:8080/progress"
+const PROGRESS_API_BASE_URL = "/api/progress"
 
 const USER_PARAM = "?userId="
 const EXERCISE_PARAM = "&name="

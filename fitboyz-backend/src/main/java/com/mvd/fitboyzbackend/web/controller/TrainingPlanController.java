@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/training-plan")
+@RequestMapping("/api/training-plan")
 public class TrainingPlanController {
 
     private final TrainingPlanService trainingPlanService;

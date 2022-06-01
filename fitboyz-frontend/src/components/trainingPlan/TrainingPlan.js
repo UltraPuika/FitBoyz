@@ -37,7 +37,7 @@ const TrainingPlan = () => {
     <div>
       <Navbar />
       <div
-        onClick={() => (window.location.href = "/new-training-plan")}
+        onClick={() => (window.location.href = "/#/new-training-plan")}
         className="add-plan"
       >
         ADD NEW TRAINING PLAN
@@ -73,7 +73,7 @@ const TrainingPlan = () => {
                     <FaRegEye
                       className="icon"
                       onClick={() =>
-                        (window.location.href = "/training-plan/" + id)
+                        (window.location.href = "/#/training-plan/" + id)
                       }
                       />
                   </div>
@@ -102,7 +102,7 @@ const TrainingPlan = () => {
                           <FaPlay
                             className="icon"
                             onClick={() =>
-                              (window.location.href = "/new-workout/" + id)
+                              (window.location.href = "/#/new-workout/" + id)
                             }
                             />
                             {sessions.length > 1 && <FaTrash

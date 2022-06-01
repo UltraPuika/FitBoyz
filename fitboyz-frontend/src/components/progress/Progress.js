@@ -167,7 +167,7 @@ const Progress = () => {
         </div>
         <button
           className="add-progress"
-          onClick={() => (window.location.href = "/new-progress")}
+          onClick={() => (window.location.href = "/#/new-progress")}
         >
           Add Progress
         </button>

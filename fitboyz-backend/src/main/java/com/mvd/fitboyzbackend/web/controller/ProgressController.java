@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.util.stream.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/progress")
+@RequestMapping("/api/progress")
 public class ProgressController {
 
     private final ProgressService progressService;

@@ -122,7 +122,7 @@ const NewTrainingPlan = () => {
         sessions,
         numberOfSessions,
       }).then((res) => {
-        window.location.href = "/training-plan";
+        window.location.href = "/#/training-plan";
       });
     }
   };

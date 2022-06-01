@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const WORKOUT_API_BASE_URL = "http://localhost:8080/completed-session"
+const WORKOUT_API_BASE_URL = "/api/completed-session"
 
 const USER_PARAM = "?userId="
 const SESSION_PARAM = "?sessionId="
