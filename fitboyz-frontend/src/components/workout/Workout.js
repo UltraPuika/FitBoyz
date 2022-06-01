@@ -25,7 +25,6 @@ const Workout = () => {
   return (
     <div>
       <Navbar />
-      {workouts ? 
       <div className="workout main-container">
         {workouts.map(({ id, date, completedExercises }) => {
           return (
@@ -58,7 +57,6 @@ const Workout = () => {
           )
         })}
       </div>
-  :  <h1 className="nothing">There is no workouts recorded!</h1>}
     </div>
     )
   }

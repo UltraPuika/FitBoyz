@@ -42,7 +42,6 @@ const TrainingPlan = () => {
       >
         ADD NEW TRAINING PLAN
       </div>
-      {trainingPlans ?
       <div className="main-container training-plan">
         {trainingPlans.map(
           ({
@@ -126,7 +125,6 @@ const TrainingPlan = () => {
           }
           )}
       </div>
-  :  <h1 className="nothing">There is no training plans!</h1>}
     </div>
     )
   }
