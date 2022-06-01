@@ -1,39 +1,37 @@
-import React, { useState } from "react"
-import { v4 as uuidv4 } from "uuid"
-import TrainingPlanService from "../../services/TrainingPlanService"
-import NewSession from "./NewSession"
-import Navbar from "../Navbar"
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import TrainingPlanService from "../../services/TrainingPlanService";
+import NewSession from "./NewSession";
+import Navbar from "../Navbar";
 
 const NewTrainingPlan = () => {
-  const [trainingPlan, setTrainingPlan] = useState({})
-  const [title, setTitle] = useState("")
-  const [planLength, setPlanLength] = useState("")
-  const [numberOfSessions, setNumberOfSessions] = useState("")
+  const [title, setTitle] = useState("");
+  const [planLength, setPlanLength] = useState("");
+  const [numberOfSessions, setNumberOfSessions] = useState("");
 
   const [sessions, setSessions] = useState([
     {
       id: uuidv4(),
       sessionTitle: "",
-      intensity: "",
-      sessionExercises: "",
+      intensity: "Not Specified",
+      sessionExercises: [{
+        id: uuidv4(),
+        name: "",
+        sets: "",
+        reps: "",
+      }],
     },
-  ])
+  ]);
 
   const handleChangeS = (id, event) => {
     const newSessions = sessions.map((i) => {
       if (id === i.id) {
-        i[event.target.name] = event.target.value
+        i[event.target.name] = event.target.value;
       }
-      return i
-    })
-    setSessions(newSessions)
-    setTrainingPlan({
-      title,
-      planLength,
-      sessions,
-      numberOfSessions,
-    })
-  }
+      return i;
+    });
+    setSessions(newSessions);
+  };
 
   const handleAddSession = () => {
     setSessions([
@@ -41,55 +39,93 @@ const NewTrainingPlan = () => {
       {
         id: uuidv4(),
         sessionTitle: "",
-        intensity: "",
-        sessionExercises: [],
+        intensity: "Not Specified",
+        sessionExercises: [
+          {
+            id: uuidv4(),
+            name: "",
+            sets: "",
+            reps: "",
+          },
+        ],
       },
-    ])
-  }
+    ]);
+  };
 
   const handleRemoveSession = (id) => {
-    const values = [...sessions]
-    values.splice(
-      values.findIndex((value) => value.id === id),
-      1
-    )
-    setSessions(values)
-  }
+    const values = [...sessions];
+   const index = values.findIndex((value) => value.id === id);
+    values[index].sessionExercises = []
+    values.splice(index, 1); 
+    setSessions(values);
+
+  };
 
   const handleChange = (event) => {
     if (event.target.name === "title") {
-      setTitle(event.target.value)
+      setTitle(event.target.value);
     } else if (event.target.name === "planLength") {
-      setPlanLength(event.target.value)
+      setPlanLength(event.target.value);
     } else if (event.target.name === "numberOfSessions") {
-      setNumberOfSessions(event.target.value)
+      setNumberOfSessions(event.target.value);
     }
-    setTrainingPlan({
-      title,
-      planLength,
-      sessions,
-      numberOfSessions,
-    })
-  }
+  };
+
+  const checkIfEmpty = ({ title, planLength, sessions, numberOfSessions }) => {
+    let test = false;
+    if (!title || !planLength || !numberOfSessions) {
+      test = true;
+    } else {
+      if (!sessions) test = true;
+      sessions.forEach(({ sessionTitle, sessionExercises }) => {
+        if (!sessionTitle) {
+          test = true;
+        } else {
+          if (!sessionExercises) test = true
+          sessionExercises.forEach(({ sets, reps, name }) => {
+            if (!sets || !reps || !name ) {
+              test = true;
+            }
+          });
+        }
+      });
+    }
+    return test;
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const id = parseInt(sessionStorage.getItem("token"))
-    trainingPlan.sessions.forEach((session) => {
-      delete session.id
-      session.sessionExercises.forEach((exercise) => {
-        delete exercise.id
-      })
-    })
-    TrainingPlanService.createTrainingPlan(id, {
+    e.preventDefault();
+    if (checkIfEmpty({
       title,
       planLength,
       sessions,
       numberOfSessions,
-    }).then((res) => {
-      window.location.href = "/training-plan"
-    })
-  }
+    })) {
+      console.log({
+        title,
+        planLength,
+        sessions,
+        numberOfSessions,
+      });
+      alert("Please fill all fields!");
+    } else {
+      const id = parseInt(sessionStorage.getItem("token"));
+      sessions.forEach((session) => {
+        delete session.id;
+        session.sessionExercises.forEach((exercise) => {
+          delete exercise.id;
+        });
+      });
+      TrainingPlanService.createTrainingPlan(id, {
+        title,
+        planLength,
+        sessions,
+        numberOfSessions,
+      }).then((res) => {
+        window.location.href = "/training-plan";
+      });
+    }
+  };
 
   return (
     <div>
@@ -129,25 +165,22 @@ const NewTrainingPlan = () => {
           </label>
           {sessions.map((session) => (
             <NewSession
+            key={session.id}
               session={session}
               handleChangeS={handleChangeS}
               handleRemoveSession={handleRemoveSession}
               setSessions={setSessions}
-              setTrainingPlan={setTrainingPlan}
               sessions={sessions}
-              trainingPlan={trainingPlan}
             />
           ))}
           <button type="button" onClick={handleAddSession}>
             Add session
           </button>
-          <button type="submit">
-            Save Plan
-          </button>
+          <button type="submit">Save Plan</button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NewTrainingPlan
+export default NewTrainingPlan;

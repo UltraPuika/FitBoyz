@@ -12,6 +12,7 @@ const Workout = () => {
   const getWorkouts = () => {
     const id = parseInt(sessionStorage.getItem("token"))
     WorkoutService.getWorkouts(id).then((res) => {
+      console.log(res.data);
       setWorkouts(res.data)
     })
   }
@@ -24,6 +25,7 @@ const Workout = () => {
   return (
     <div>
       <Navbar />
+      {workouts ? 
       <div className="workout main-container">
         {workouts.map(({ id, date, completedExercises }) => {
           return (
@@ -56,8 +58,10 @@ const Workout = () => {
           )
         })}
       </div>
+  :  <h1 className="nothing">There is no workouts recorded!</h1>}
     </div>
-  )
-}
-
-export default Workout
+    )
+  }
+  
+  export default Workout
+  

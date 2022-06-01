@@ -7,9 +7,7 @@ const NewExercise = ({
   handleChangeCE,
   handleRemoveExercise,
   setCompletedExercises,
-  setWorkout,
   completedExercises,
-  workout,
 }) => {
   const [sets, setSets] = useState(exercise.sets)
 
@@ -29,9 +27,6 @@ const NewExercise = ({
       }
     })
     setCompletedExercises(tempExercises)
-    const tempWorkout = workout
-    tempWorkout.completedExercises = completedExercises
-    setWorkout(tempWorkout)
   }
 
   const handleAddSet = () => {

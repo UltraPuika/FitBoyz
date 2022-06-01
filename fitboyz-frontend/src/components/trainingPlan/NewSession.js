@@ -7,9 +7,7 @@ const NewSession = ({
   handleChangeS,
   handleRemoveSession,
   setSessions,
-  setTrainingPlan,
   sessions,
-  trainingPlan,
 }) => {
   const [sessionExercises, setSessionExercises] = useState([
     {
@@ -36,9 +34,6 @@ const NewSession = ({
       }
     })
     setSessions(tempSessions)
-    const tempTrainingPlan = trainingPlan
-    tempTrainingPlan.sessions = sessions
-    setTrainingPlan(tempTrainingPlan)
   }
 
   const handleAddExercise = () => {
@@ -87,7 +82,7 @@ const NewSession = ({
           onChange={(event) => handleChangeS(session.id, event)}
           value={session.intensity}
         >
-          <option value="">Not specified</option>
+          <option value="Not specified">Not specified</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
@@ -102,8 +97,8 @@ const NewSession = ({
           </tr>
         </thead>
         <tbody>
-          {sessionExercises.map((exercise) => (
-            <tr key={exercise.id} className="container">
+          {sessionExercises.map((exercise, index) => (
+            <tr key={index} className="container">
               <td>
                 <label>
                   <input

@@ -30,8 +30,8 @@ const Plan = () => {
     })
   }
   const setCurrentPlan = (id) => {
-    console.log(id)
-    TrainingPlanService.setCurrentTrainingPlan(id).then((res) => {
+    const userId = parseInt(sessionStorage.getItem("token"))
+    TrainingPlanService.setCurrentTrainingPlan(id, userId).then((res) => {
       getTrainingPlan(planId)
     })
   }
@@ -78,9 +78,9 @@ const Plan = () => {
 
         <div className="main-container sessions">
           {trainingPlan.sessions.map(
-            ({ id, sessionTitle, intensity, sessionExercises }) => {
+            ({ id, sessionTitle, intensity, sessionExercises }, index) => {
               return (
-                <div className="box" key={id}>
+                <div className="box" key={index}>
                   <div className="header">
                     <h1>{sessionTitle}</h1>
                     <div className="btns">
@@ -90,10 +90,11 @@ const Plan = () => {
                           (window.location.href = "/new-workout/" + id)
                         }
                       />
-                      <FaTrash
+                      {trainingPlan.sessions.length > 1 && <FaTrash
                         className="icon"
                         onClick={() => deleteSession(id)}
-                      />
+                      />}
+                      
                     </div>
                   </div>
                   <div>{intensity} intensity</div>
@@ -101,7 +102,7 @@ const Plan = () => {
                     <h3>Exercises:</h3>
                     {sessionExercises.map(({ id, name, sets, reps }, index) => {
                       return (
-                        <div className="item-container exercise-container" key={id}>
+                        <div className="item-container exercise-container" key={index}>
                           <div>
                             <div>
                               {index + 1}. {name}
@@ -110,11 +111,11 @@ const Plan = () => {
                               {sets}x{reps}
                             </div>
                           </div>
-
-                          <FaTrash
+{sessionExercises.length > 1 && <FaTrash
                             className="icon"
                             onClick={() => deleteExercise(id)}
-                          />
+                          />}
+                          
                         </div>
                       )
                     })}

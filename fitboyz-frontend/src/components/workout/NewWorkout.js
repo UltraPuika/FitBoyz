@@ -10,10 +10,10 @@ const year = new Date().getFullYear()
 const month = new Date().getMonth() + 1
 const day = new Date().getDate()
 const monthString = month < 10 ? "0" + month : month
-const currentDate = year + "-" + monthString + "-" + day
+const dayString = day < 10 ? "0" + day : day
+const currentDate = year + "-" + monthString + "-" + dayString
 
 const NewWorkout = () => {
-  const [workout, setWorkout] = useState({})
   const [date, setDate] = useState(currentDate)
 
   const [completedExercises, setCompletedExercises] = useState([])
@@ -46,7 +46,6 @@ const NewWorkout = () => {
         ]
       })
       setCompletedExercises(exercises)
-      setWorkout({ date, completedExercises })
     })
   }
 
@@ -58,7 +57,6 @@ const NewWorkout = () => {
       return i
     })
     setCompletedExercises(newCompletedExercises)
-    setWorkout({ date, completedExercises })
   }
 
   const handleAddExercise = () => {
@@ -89,23 +87,51 @@ const NewWorkout = () => {
 
   const handleChange = (event) => {
     if (event.target.name === "date") {
+      console.log(event.target.value);
       setDate(event.target.value)
     }
-    setWorkout({ date, completedExercises })
   }
+
+  const checkIfEmpty = ({ date, completedExercises }) => {
+    let test = false;
+    if (!date) {
+      test = true;
+    } else {
+      if (!completedExercises) test = true;
+      completedExercises.forEach(({ name, sets }) => {
+        if (!name) {
+          test = true;
+        } else {
+          if (!sets) test = true
+          sets.forEach(({ completedReps, amount }) => {
+            if (!completedReps || !amount ) {
+              test = true;
+            }
+          });
+        }
+      });
+    }
+    return test;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    workout.completedExercises.forEach((exercise) => {
-      delete exercise.id
-      exercise.sets.forEach((set) => {
-        delete set.id
-      })
-    })
+    console.log({ date, completedExercises });
+    if(checkIfEmpty({ date, completedExercises })){
+alert("Please fill all fields!")
+    }else{
 
-    WorkoutService.createWorkout(sessionId, workout).then((res) => {
-      window.location.href = "/"
-    })
+      completedExercises.forEach((exercise) => {
+        delete exercise.id
+        exercise.sets.forEach((set) => {
+          delete set.id
+        })
+      })
+      
+      WorkoutService.createWorkout(sessionId, { date, completedExercises }).then((res) => {
+        window.location.href = "/"
+      })
+    }
   }
 
   return (
@@ -131,9 +157,7 @@ const NewWorkout = () => {
               handleChangeCE={handleChangeCE}
               handleRemoveExercise={handleRemoveExercise}
               setCompletedExercises={setCompletedExercises}
-              setWorkout={setWorkout}
               completedExercises={completedExercises}
-              workout={workout}
             />
           ))}
           <button type="button" onClick={handleAddExercise}>

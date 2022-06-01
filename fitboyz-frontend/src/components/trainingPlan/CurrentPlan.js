@@ -4,20 +4,15 @@ import Navbar from "../Navbar"
 import { FaPlay, FaTrash } from "react-icons/fa"
 
 const CurrentPlan = () => {
-  const [trainingPlan, setTrainingPlan] = useState({
-    id: "",
-    title: "",
-    planLength: "",
-    sessions: [{ sessionTitle: "", intensity: "", sessionExercises: [] }],
-    numberOfSessions: "",
-  })
+  const [trainingPlan, setTrainingPlan] = useState("")
 
   useEffect(() => {
     getCurrentTrainingPlan()
   }, [])
 
   const getCurrentTrainingPlan = () => {
-    TrainingPlanService.getCurrentTrainingPlan().then((res) => {
+    const id = parseInt(sessionStorage.getItem("token"))
+    TrainingPlanService.getCurrentTrainingPlan(id).then((res) => {
       setTrainingPlan(res.data)
     })
   }
@@ -40,6 +35,7 @@ const CurrentPlan = () => {
   return (
     <div>
       <Navbar />
+        {trainingPlan ? 
       <div className="plan">
         <div className="title">{trainingPlan.title}</div>
         <div className="main">
@@ -51,11 +47,11 @@ const CurrentPlan = () => {
           </div>
         </div>
 
-        <div className="main-container sessions">
+<div className="main-container sessions">
           {trainingPlan.sessions.map(
-            ({ id, sessionTitle, intensity, sessionExercises }) => {
+            ({ id, sessionTitle, intensity, sessionExercises }, index) => {
               return (
-                <div className="box" key={id}>
+                <div className="box" key={index}>
                   <div className="header">
                     <h1>{sessionTitle}</h1>
                     <div className="btns">
@@ -64,7 +60,7 @@ const CurrentPlan = () => {
                         onClick={() =>
                           (window.location.href = "/new-workout/" + id)
                         }
-                      />
+                        />
                       <FaTrash
                         className="icon"
                         onClick={() => deleteSession(id)}
@@ -77,8 +73,8 @@ const CurrentPlan = () => {
                     {sessionExercises.map(({ id, name, sets, reps }, index) => {
                       return (
                         <div
-                          className="item-container exercise-container"
-                          key={id}
+                        className="item-container exercise-container"
+                        key={index}
                         >
                           <div>
                             <div>
@@ -92,7 +88,7 @@ const CurrentPlan = () => {
                           <FaTrash
                             className="icon"
                             onClick={() => deleteExercise(id)}
-                          />
+                            />
                         </div>
                       )
                     })}
@@ -106,8 +102,9 @@ const CurrentPlan = () => {
           Delete Training Plan
         </button>
       </div>
-    </div>
-  )
+    : <h1 className="nothing">Current training plan is not set!</h1>}
+      </div>
+      )
 }
 
 export default CurrentPlan

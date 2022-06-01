@@ -14,11 +14,11 @@ class TrainingPlanService {
   getTrainingPlan(id) {
     return axios.get(TRAINING_PLAN_API_BASE_URL + "/" + id)
   }
-  getCurrentTrainingPlan() {
-    return axios.get(TRAINING_PLAN_API_BASE_URL + "/current")
+  getCurrentTrainingPlan(userId) {
+    return axios.get(TRAINING_PLAN_API_BASE_URL + "/current" + USER_PARAM + userId)
   }
-  setCurrentTrainingPlan(id) {
-    return axios.put(TRAINING_PLAN_API_BASE_URL + "/current/" + id)
+  setCurrentTrainingPlan(id, userId) {
+    return axios.put(TRAINING_PLAN_API_BASE_URL + "/current/" + id + USER_PARAM + userId)
   }
   getSession(sessionId) {
     return axios.get(TRAINING_PLAN_API_BASE_URL + SESSION + "/" + sessionId)

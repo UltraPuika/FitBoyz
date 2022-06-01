@@ -24,16 +24,16 @@ public class TrainingPlanDbClient {
         return trainingPlanDbRepository.findByIdEquals(id);
     }
 
-    public TrainingPlan getCurrentPlan(){
-        return trainingPlanDbRepository.findByIsCurrentTrue();
+    public TrainingPlan getCurrentPlan(Long userId){
+        return trainingPlanDbRepository.findByIsCurrentTrueAndUser_IdEquals(userId);
     }
 
-    public long deleteEntity(Long id){
-        return trainingPlanDbRepository.deleteByIdEquals(id);
+    public void deleteEntity(Long id){
+        trainingPlanDbRepository.deleteByIdEquals(id);
     }
 
-    public void updateCurrent(Long id){
-        trainingPlanDbRepository.updateIsCurrentByIsCurrentTrue();
-        trainingPlanDbRepository.updateIsCurrentByIdEquals(id);
+    public void updateCurrent(Long id, Long userId){
+        trainingPlanDbRepository.updateIsCurrentByIsCurrentTrueAndUser_IdEquals(userId);
+        trainingPlanDbRepository.updateIsCurrentByIdEqualsAndUser_IdEquals(id, userId);
     }
 }

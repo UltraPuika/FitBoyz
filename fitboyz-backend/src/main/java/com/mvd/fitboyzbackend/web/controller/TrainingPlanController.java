@@ -38,14 +38,14 @@ public class TrainingPlanController {
     }
 
     @GetMapping("/current")
-    public ResponseEntity<TrainingPlanDto> getCurrentTrainingPlan() {
-        TrainingPlanDto trainingPlan = trainingPlanService.getCurrentTrainingPlan();
+    public ResponseEntity<TrainingPlanDto> getCurrentTrainingPlan(@RequestParam Long userId) {
+        TrainingPlanDto trainingPlan = trainingPlanService.getCurrentTrainingPlan(userId);
         return new ResponseEntity<>(trainingPlan, HttpStatus.OK);
     }
 
     @PutMapping("/current/{id}")
-    public ResponseEntity<?> updateCurrent(@PathVariable("id") Long id) {
-        trainingPlanService.updateCurrentPlan(id);
+    public ResponseEntity<?> updateCurrent(@PathVariable("id") Long id,@RequestParam Long userId) {
+        trainingPlanService.updateCurrentPlan(id, userId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

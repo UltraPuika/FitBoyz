@@ -14,19 +14,19 @@ public interface TrainingPlanDbRepository extends PagingAndSortingRepository<Tra
 
     long deleteByIdEquals(Long id);
 
-    TrainingPlan findByIsCurrentTrue();
+    TrainingPlan findByIsCurrentTrueAndUser_IdEquals(Long id);
 
     TrainingPlan findByIdEquals(Long id);
 
     @Transactional
     @Modifying
-    @Query("update TrainingPlan t set t.isCurrent = false where t.isCurrent = true")
-    void updateIsCurrentByIsCurrentTrue();
+    @Query("update TrainingPlan t set t.isCurrent = false where t.isCurrent = true and t.user.id = ?1")
+    void updateIsCurrentByIsCurrentTrueAndUser_IdEquals(Long id);
 
     @Transactional
     @Modifying
-    @Query("update TrainingPlan t set t.isCurrent = true where t.id = ?1")
-    void updateIsCurrentByIdEquals(Long id);
+    @Query("update TrainingPlan t set t.isCurrent = true where t.id = ?1 and t.user.id = ?2")
+    int updateIsCurrentByIdEqualsAndUser_IdEquals(Long id, Long id1);
 
 
 

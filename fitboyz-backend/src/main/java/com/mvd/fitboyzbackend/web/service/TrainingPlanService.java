@@ -41,13 +41,13 @@ public class TrainingPlanService {
         return trainingPlanManipulator.convertTrainingPlanToDto(trainingPlan);
     }
 
-    public TrainingPlanDto getCurrentTrainingPlan() {
-        TrainingPlan trainingPlan = trainingPlanDbClient.getCurrentPlan();
+    public TrainingPlanDto getCurrentTrainingPlan(Long userId) {
+        TrainingPlan trainingPlan = trainingPlanDbClient.getCurrentPlan(userId);
         return trainingPlanManipulator.convertTrainingPlanToDto(trainingPlan);
     }
 
-    public void updateCurrentPlan(Long id) {
-        trainingPlanDbClient.updateCurrent(id);
+    public void updateCurrentPlan(Long id, Long userId) {
+        trainingPlanDbClient.updateCurrent(id, userId);
     }
 
     public void deleteTrainingPlan(Long id) {

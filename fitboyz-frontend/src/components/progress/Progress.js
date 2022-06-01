@@ -48,6 +48,7 @@ const Progress = () => {
       setName(event.target.value)
     } else if (event.target.name === "repsweight") {
       setRepsweight(event.target.value)
+      setCount("")
     } else if (event.target.name === "amount") {
       setCount(event.target.value)
     }
@@ -69,6 +70,7 @@ const Progress = () => {
     let amounts = []
     const id = parseInt(sessionStorage.getItem("token"))
     ProgressService.getProgress(name, id).then((res) => {
+      console.log(res.data);
       res.data.forEach(({ date, amount, reps }) => {
         if (repsweight === "reps") {
           if (parseInt(count) === reps) {
@@ -126,8 +128,8 @@ const Progress = () => {
                   value={name}
                 >
                   <option value="" selected disabled hidden></option>
-                  {exercises.map((exercise) => {
-                    return <option value={exercise}>{exercise}</option>
+                  {exercises.map((exercise, index) => {
+                    return <option key={index} value={exercise}>{exercise}</option>
                   })}
                 </select>
               </label>

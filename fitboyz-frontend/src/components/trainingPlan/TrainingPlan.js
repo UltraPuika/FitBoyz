@@ -22,8 +22,8 @@ const TrainingPlan = () => {
     })
   }
   const setCurrentPlan = (id) => {
-    console.log(id)
-    TrainingPlanService.setCurrentTrainingPlan(id).then((res) => {
+    const userId = parseInt(sessionStorage.getItem("token"))
+    TrainingPlanService.setCurrentTrainingPlan(id, userId).then((res) => {
       getTrainingPlans()
     })
   }
@@ -42,6 +42,7 @@ const TrainingPlan = () => {
       >
         ADD NEW TRAINING PLAN
       </div>
+      {trainingPlans ?
       <div className="main-container training-plan">
         {trainingPlans.map(
           ({
@@ -59,23 +60,23 @@ const TrainingPlan = () => {
                   <div className="btns">
                     {isCurrent ? (
                       <FaStar
-                        className="icon"
-                        type="button"
-                        onClick={() => setCurrentPlan(id)}
+                      className="icon"
+                      type="button"
+                      onClick={() => setCurrentPlan(id)}
                       />
-                    ) : (
+                      ) : (
                       <FaRegStar
-                        className="icon"
-                        type="button"
-                        onClick={() => setCurrentPlan(id)}
+                      className="icon"
+                      type="button"
+                      onClick={() => setCurrentPlan(id)}
                       />
-                    )}
+                      )}
                     <FaRegEye
                       className="icon"
                       onClick={() =>
                         (window.location.href = "/training-plan/" + id)
                       }
-                    />
+                      />
                   </div>
                 </div>
                 <p>
@@ -89,8 +90,8 @@ const TrainingPlan = () => {
                   {sessions.map(({ id, sessionTitle, intensity }) => {
                     return (
                       <div
-                        className="item-container session-container"
-                        key={id}
+                      className="item-container session-container"
+                      key={id}
                       >
                         <div className="session-text">
                           <p>
@@ -104,11 +105,12 @@ const TrainingPlan = () => {
                             onClick={() =>
                               (window.location.href = "/new-workout/" + id)
                             }
-                          />
-                          <FaTrash
+                            />
+                            {sessions.length > 1 && <FaTrash
                             className="icon"
                             onClick={() => deleteSession(id)}
-                          />
+                            />}
+                          
                         </div>
                       </div>
                     )
@@ -122,10 +124,11 @@ const TrainingPlan = () => {
               </div>
             )
           }
-        )}
+          )}
       </div>
+  :  <h1 className="nothing">There is no training plans!</h1>}
     </div>
-  )
-}
-
-export default TrainingPlan
+    )
+  }
+  
+  export default TrainingPlan
